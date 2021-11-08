@@ -1,16 +1,24 @@
 /*
  * Páginas
  */
-export const PAGES: any[] = [
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AddComponent } from './pages/add/add.component';
+import { EditComponent } from './pages/edit/edit.component';
 
+export const PAGES: any[] = [
+	LoginComponent,
+	RegisterComponent,
+	HomeComponent,
+	AddComponent,
+	EditComponent
 ];
 
 /*
  * Componentes parciales
  */
-export const COMPONENTS: any[] = [
- 
- ];
+export const COMPONENTS: any[] = [];
  
  /*
  * Pipes
