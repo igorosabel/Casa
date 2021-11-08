@@ -3,7 +3,7 @@ export interface DataShareGlobals {
 }
 
 export interface LoginData {
-	user: string;
+	email: string;
 	pass: string;
 }
 
@@ -14,11 +14,16 @@ export interface LoginResult {
 	token: string;
 }
 
+export interface RegisterData {
+	email: string;
+	name: string;
+	pass: string;
+	conf_pass: string;
+}
+
 export interface UserInterface {
 	id: number;
 	name: string;
 	email: string;
-	pass: string;
-	conf_pass: string;
 	token: string;
 }

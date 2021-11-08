@@ -1,1 +1,38 @@
-<p>register works!</p>
+<mat-toolbar>
+	<button mat-icon-button routerLink="/">
+		<mat-icon>arrow_back</mat-icon>
+	</button>
+	<span>Casa</span>
+</mat-toolbar>
+
+<form name="frm-register" (ngSubmit)="doRegister($event)">
+	<mat-card>
+		<mat-card-header>
+			<mat-card-title>Registro</mat-card-title>
+		</mat-card-header>
+		<mat-card-content class="content">
+			<mat-form-field>
+				<mat-label>Email</mat-label>
+				<input matInput [(ngModel)]="registerData.email" [disabled]="registerSending" required name="email">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Nombre</mat-label>
+				<input matInput [(ngModel)]="registerData.name" [disabled]="registerSending" required name="name">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Contraseña</mat-label>
+				<input matInput type="password" [(ngModel)]="registerData.pass" [disabled]="registerSending" required name="pass">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Confirmar contraseña</mat-label>
+				<input matInput type="password" [(ngModel)]="registerData.conf_pass" [disabled]="registerSending" required name="conf_pass">
+			</mat-form-field>
+		</mat-card-content>
+		<mat-card-actions class="actions">
+			<button mat-raised-button color="primary" [disabled]="registerSending">
+				<span *ngIf="!registerSending">Continuar</span>
+				<img *ngIf="registerSending" src="/assets/loading.svg" class="loading">
+			</button>
+		</mat-card-actions>
+	</mat-card>
+</form>

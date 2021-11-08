@@ -19,7 +19,7 @@ export const PAGES: any[] = [
  * Componentes parciales
  */
 export const COMPONENTS: any[] = [];
- 
+
  /*
  * Pipes
  */
@@ -40,4 +40,23 @@ export const SERVICES: any[] = [
 	UserService,
 	ClassMapperService,
 	AuthService
+];
+
+/*
+ * Componentes Angular Material
+ */
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+
+export const  MATERIAL: any[] = [
+	MatCardModule,
+	MatButtonModule,
+	MatFormFieldModule,
+	MatInputModule,
+	MatToolbarModule,
+	MatIconModule
 ];

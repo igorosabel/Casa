@@ -5,7 +5,8 @@ import { environment } from '../../environments/environment';
 
 import {
 	LoginData,
-	LoginResult
+	LoginResult,
+	RegisterData
 } from '../interfaces/interfaces';
 
 @Injectable()
@@ -15,6 +16,10 @@ export class ApiService {
 	constructor(private http : HttpClient){}
 
 	login(data: LoginData): Observable<LoginResult> {
-		return this.http.post<LoginResult>(this.apiUrl + 'admin/login', data);
+		return this.http.post<LoginResult>(this.apiUrl + 'api/login', data);
+	}
+
+	register(data: RegisterData): Observable<LoginResult> {
+		return this.http.post<LoginResult>(this.apiUrl + 'api/login', data);
 	}
 }

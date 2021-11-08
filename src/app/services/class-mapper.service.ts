@@ -26,8 +26,6 @@ export class ClassMapperService {
 			u.id,
 			Utils.urldecode(u.name),
 			Utils.urldecode(u.email),
-			u.pass,
-			u.conf_pass,
 			u.token
 		);
 	}

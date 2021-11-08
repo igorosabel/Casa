@@ -1,0 +1,24 @@
+mat-card {
+	width: 80%;
+	margin: 0 auto;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.actions {
+		display: flex;
+		justify-content: flex-end;
+
+		.loading {
+			width: 24px;
+		}
+	}
+}
+
+@media screen and (min-width: 900px) {
+	mat-card {
+		width: 30%;
+	}
+}
