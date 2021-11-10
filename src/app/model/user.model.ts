@@ -5,7 +5,8 @@ export class User {
 		public id: number = -1,
 		public name: string = '',
 		public email: string = '',
-		public token: string = ''
+		public token: string = '',
+		public color: string = ''
 	) {}
 
 	toInterface(): UserInterface {
@@ -13,7 +14,8 @@ export class User {
 			id: this.id,
 			name: this.name,
 			email: this.email,
-			token: this.token
+			token: this.token,
+			color: this.color
 		};
 	}
 }

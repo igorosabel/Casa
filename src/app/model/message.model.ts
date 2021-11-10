@@ -10,7 +10,8 @@ export class Message {
 		public done: boolean = false,
 		public is_private: boolean = false,
 		public tags: Tag[] = [],
-		public date: string = ''
+		public date: string = '',
+		public color: string = ''
 	) {}
 
 	toInterface(): MessageInterface {
@@ -22,7 +23,8 @@ export class Message {
 			done: this.done,
 			is_private: this.is_private,
 			tags: this.tags.map(x => x.toInterface()),
-			date: this.date
+			date: this.date,
+			color: this.color
 		};
 	}
 }

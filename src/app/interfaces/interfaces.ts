@@ -26,6 +26,7 @@ export interface UserInterface {
 	name: string;
 	email: string;
 	token: string;
+	color: string;
 }
 
 export interface TagInterface {
@@ -43,4 +44,5 @@ export interface MessageInterface {
 	is_private: boolean;
 	tags: TagInterface[];
 	date: string;
+	color: string;
 }

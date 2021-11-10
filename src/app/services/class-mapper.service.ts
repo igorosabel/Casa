@@ -30,7 +30,8 @@ export class ClassMapperService {
 			u.id,
 			Utils.urldecode(u.name),
 			Utils.urldecode(u.email),
-			u.token
+			u.token,
+			u.color
 		);
 	}
 
@@ -71,7 +72,8 @@ export class ClassMapperService {
 			m.done,
 			m.is_private,
 			this.getTags(m.tags),
-			Utils.urldecode(m.date)
+			Utils.urldecode(m.date),
+			m.color
 		);
 	}
 }
