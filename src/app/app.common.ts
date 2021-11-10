@@ -51,6 +51,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 export const  MATERIAL: any[] = [
 	MatCardModule,
@@ -58,5 +60,7 @@ export const  MATERIAL: any[] = [
 	MatFormFieldModule,
 	MatInputModule,
 	MatToolbarModule,
-	MatIconModule
+	MatIconModule,
+	MatSidenavModule,
+	MatListModule
 ];

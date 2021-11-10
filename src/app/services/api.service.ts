@@ -20,6 +20,6 @@ export class ApiService {
 	}
 
 	register(data: RegisterData): Observable<LoginResult> {
-		return this.http.post<LoginResult>(this.apiUrl + 'api/login', data);
+		return this.http.post<LoginResult>(this.apiUrl + 'api/register', data);
 	}
 }

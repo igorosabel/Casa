@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginData } from 'src/app/interfaces/interfaces';
 import { ApiService } from 'src/app/services/api.service';
+import { UserService } from 'src/app/services/user.service';
+import { Utils } from 'src/app/services/utils.class';
 
 @Component({
 	selector: 'app-login',
@@ -14,7 +17,11 @@ export class LoginComponent implements OnInit {
 	};
 	loginSending: boolean = false;
 
-	constructor(private as: ApiService) {}
+	constructor(
+		private as: ApiService,
+		private us: UserService,
+		private router: Router
+	) {}
 
 	ngOnInit(): void {}
 
@@ -34,7 +41,14 @@ export class LoginComponent implements OnInit {
 		this.as.login(this.loginData).subscribe(result => {
 			this.loginSending = false;
 			if (result.status === 'ok') {
+				this.us.logged     = true;
+				this.us.user.id    = result.id;
+				this.us.user.name  = Utils.urldecode(result.name);
+				this.us.user.email = this.loginData.email;
+				this.us.user.token = Utils.urldecode(result.token);
+				this.us.saveLogin();
 
+				this.router.navigate(['/home']);
 			}
 			else {
 				alert('¡Nombre de usuario o contraseña incorrectos!');

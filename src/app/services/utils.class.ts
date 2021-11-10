@@ -7,4 +7,9 @@ export class Utils {
 	static urlencode(str: string) {
 		return encodeURIComponent( str ).replace( /\%20/g, '+' ).replace( /!/g, '%21' ).replace( /'/g, '%27' ).replace( /\(/g, '%28' ).replace( /\)/g, '%29' ).replace( /\*/g, '%2A' ).replace( /\~/g, '%7E' );
 	}
+	
+	static validateEmail(email: string): boolean {
+        const re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
 }
