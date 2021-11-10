@@ -5,3 +5,19 @@
 	left: 0;
 	right: 0;
 }
+
+.sidebar {
+	min-width: 20%;
+
+	.red-icon {
+		color: var(--red);
+	}
+
+	.green-icon {
+		color: var(--green);
+	}
+
+	.blue-icon {
+		color: var(--blue);
+	}
+}

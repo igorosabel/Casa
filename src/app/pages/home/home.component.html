@@ -7,15 +7,15 @@
 		</mat-toolbar>
 		<mat-nav-list>
 			<a mat-list-item>
-				<mat-icon matListIcon >list</mat-icon>
+				<mat-icon matListIcon class="blue-icon">list</mat-icon>
 				Todos
 			</a>
 			<a mat-list-item>
-				<mat-icon matListIcon >article</mat-icon>
+				<mat-icon matListIcon class="green-icon">article</mat-icon>
 				Mensajes
 			</a>
 			<a mat-list-item>
-				<mat-icon matListIcon >fact_check</mat-icon>
+				<mat-icon matListIcon class="red-icon">fact_check</mat-icon>
 				Tareas
 			</a>
 			<a mat-list-item (click)="logout($event)">
@@ -39,6 +39,6 @@
 		<button mat-fab color="primary" class="fab" routerLink="/add">
 			<mat-icon>add</mat-icon>
 		</button>
-		
+
 	</mat-sidenav-content>
 </mat-sidenav-container>

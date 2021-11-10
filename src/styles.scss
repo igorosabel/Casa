@@ -1,4 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+	--red: #f00;
+	--green: #0cb324;
+	--blue: #0524db
+}
 
 html, body {
 	height: 100%;
@@ -11,7 +15,7 @@ body {
 }
 
 .spacer {
-  flex: 1 1 auto;
+	flex: 1 1 auto;
 }
 
 .fab {

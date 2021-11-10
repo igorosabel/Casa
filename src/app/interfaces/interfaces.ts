@@ -27,3 +27,20 @@ export interface UserInterface {
 	email: string;
 	token: string;
 }
+
+export interface TagInterface {
+	id: number;
+	id_user: number;
+	name: string;
+}
+
+export interface MessageInterface {
+	id: number;
+	id_user: number;
+	body: string;
+	type: number;
+	done: boolean;
+	is_private: boolean;
+	tags: TagInterface[];
+	date: string;
+}
