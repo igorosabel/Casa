@@ -8,7 +8,7 @@ import { Utils } from 'src/app/services/utils.class';
 @Component({
 	selector: 'app-register',
 	templateUrl: './register.component.html',
-	styleUrls: ['./register.component.scss']
+	styleUrls: []
 })
 export class RegisterComponent implements OnInit {
 	registerData: RegisterData = {

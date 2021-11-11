@@ -23,3 +23,32 @@ body {
     right: 1em;
     bottom: 1em;
 }
+
+.center-card {
+	width: 80%;
+	margin: 32px auto;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.actions {
+		display: flex;
+		justify-content: space-between;
+
+		.loading {
+			width: 24px;
+		}
+	}
+	
+	.actions-end {
+		justify-content: flex-end;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.center-card {
+		width: 30%;
+	}
+}

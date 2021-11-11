@@ -1,7 +1,7 @@
 <h1>Casa</h1>
 
 <form name="frm-login" (ngSubmit)="doLogin($event)">
-	<mat-card>
+	<mat-card class="center-card">
 		<mat-card-header>
 			<mat-card-title>Iniciar sesión</mat-card-title>
 		</mat-card-header>
@@ -17,6 +17,7 @@
 		</mat-card-content>
 		<mat-card-actions class="actions">
 			<button mat-button routerLink="/register" [disabled]="loginSending">Registro</button>
+			<button mat-button routerLink="/lost-password" [disabled]="loginSending">¿Has olvidado tu contraseña?</button>
 			<button mat-raised-button color="primary" [disabled]="loginSending">
 				<span *ngIf="!loginSending">Continuar</span>
 				<img *ngIf="loginSending" src="/assets/loading.svg" class="loading">

@@ -13,14 +13,14 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
-	{ path: '',              component: LoginComponent },
-	{ path: 'register',      component: RegisterComponent },
-	{ path: 'lost-password', component: LostPasswordComponent },
-	{ path: 'new-password',  component: NewPasswordComponent },
-	{ path: 'home',          component: HomeComponent,    canActivate: [AuthGuard] },
-	{ path: 'profile',       component: ProfileComponent, canActivate: [AuthGuard] },
-	{ path: 'add',           component: AddComponent,     canActivate: [AuthGuard] },
-	{ path: 'edit',          component: EditComponent,    canActivate: [AuthGuard] }
+	{ path: '',                    component: LoginComponent },
+	{ path: 'register',            component: RegisterComponent },
+	{ path: 'lost-password',       component: LostPasswordComponent },
+	{ path: 'new-password/:token', component: NewPasswordComponent },
+	{ path: 'home',                component: HomeComponent,    canActivate: [AuthGuard] },
+	{ path: 'profile',             component: ProfileComponent, canActivate: [AuthGuard] },
+	{ path: 'add',                 component: AddComponent,     canActivate: [AuthGuard] },
+	{ path: 'edit',                component: EditComponent,    canActivate: [AuthGuard] }
 ];
 
 @NgModule({

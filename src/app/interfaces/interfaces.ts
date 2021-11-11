@@ -29,6 +29,10 @@ export interface UserInterface {
 	color: string;
 }
 
+export interface StatusResult {
+	status: string;
+}
+
 export interface TagInterface {
 	id: number;
 	id_user: number;
