@@ -6,13 +6,19 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AddComponent } from './pages/add/add.component';
 import { EditComponent } from './pages/edit/edit.component';
+import { LostPasswordComponent } from './pages/lost-password/lost-password.component';
+import { NewPasswordComponent } from './pages/new-password/new-password.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const PAGES: any[] = [
 	LoginComponent,
 	RegisterComponent,
 	HomeComponent,
 	AddComponent,
-	EditComponent
+	EditComponent,
+	LostPasswordComponent,
+	NewPasswordComponent,
+	ProfileComponent
 ];
 
 /*

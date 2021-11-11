@@ -6,15 +6,21 @@ import { RegisterComponent } from './pages/register/register.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AddComponent } from './pages/add/add.component';
 import { EditComponent } from './pages/edit/edit.component';
+import { LostPasswordComponent } from './pages/lost-password/lost-password.component';
+import { NewPasswordComponent } from './pages/new-password/new-password.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
-	{ path: '',         component: LoginComponent },
-	{ path: 'register', component: RegisterComponent },
-	{ path: 'home',     component: HomeComponent, canActivate: [AuthGuard] },
-	{ path: 'add',      component: AddComponent,  canActivate: [AuthGuard] },
-	{ path: 'edit',     component: EditComponent, canActivate: [AuthGuard] }
+	{ path: '',              component: LoginComponent },
+	{ path: 'register',      component: RegisterComponent },
+	{ path: 'lost-password', component: LostPasswordComponent },
+	{ path: 'new-password',  component: NewPasswordComponent },
+	{ path: 'home',          component: HomeComponent,    canActivate: [AuthGuard] },
+	{ path: 'profile',       component: ProfileComponent, canActivate: [AuthGuard] },
+	{ path: 'add',           component: AddComponent,     canActivate: [AuthGuard] },
+	{ path: 'edit',          component: EditComponent,    canActivate: [AuthGuard] }
 ];
 
 @NgModule({
