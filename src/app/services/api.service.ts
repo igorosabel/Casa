@@ -7,7 +7,8 @@ import {
 	LoginData,
 	LoginResult,
 	RegisterData,
-	StatusResult
+	StatusResult,
+	NewPassData
 } from '../interfaces/interfaces';
 
 @Injectable()
@@ -26,5 +27,13 @@ export class ApiService {
 
 	recover(email: string): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'api/recover', {email});
+	}
+	
+	checkPasswordToken(token: string): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'api/check-password-token', {token});
+	}
+	
+	newPassword(data: NewPassData): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'api/new-password', data);
 	}
 }

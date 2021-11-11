@@ -33,6 +33,12 @@ export interface StatusResult {
 	status: string;
 }
 
+export interface NewPassData {
+	pass: string;
+	conf: string;
+	token: string;
+}
+
 export interface TagInterface {
 	id: number;
 	id_user: number;
