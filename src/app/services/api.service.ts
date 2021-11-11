@@ -8,7 +8,8 @@ import {
 	LoginResult,
 	RegisterData,
 	StatusResult,
-	NewPassData
+	NewPassData,
+	MessageInterface
 } from '../interfaces/interfaces';
 
 @Injectable()
@@ -28,12 +29,16 @@ export class ApiService {
 	recover(email: string): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'api/recover', {email});
 	}
-	
+
 	checkPasswordToken(token: string): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'api/check-password-token', {token});
 	}
-	
+
 	newPassword(data: NewPassData): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'api/new-password', data);
+	}
+
+	saveMessage(message: MessageInterface): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'api/save-message', message);
 	}
 }
