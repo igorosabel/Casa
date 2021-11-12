@@ -60,6 +60,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 export const  MATERIAL: any[] = [
 	MatCardModule,
@@ -70,5 +71,6 @@ export const  MATERIAL: any[] = [
 	MatIconModule,
 	MatSidenavModule,
 	MatListModule,
-	MatRadioModule
+	MatRadioModule,
+	MatCheckboxModule
 ];

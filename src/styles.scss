@@ -47,6 +47,10 @@ body {
 	}
 }
 
+mat-checkbox {
+	margin: 0 8px;
+}
+
 @media screen and (min-width: 900px) {
 	.center-card {
 		width: 30%;
