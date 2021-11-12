@@ -5,7 +5,7 @@ import { Utils } from 'src/app/services/utils.class';
 @Component({
 	selector: 'app-lost-password',
 	templateUrl: './lost-password.component.html',
-	styleUrls: ['./lost-password.component.scss']
+	styleUrls: []
 })
 export class LostPasswordComponent implements OnInit {
 	email: string = '';
