@@ -55,6 +55,7 @@ export interface MessageInterface {
 	tags: TagInterface[];
 	date: string;
 	color: string;
+	tag_list?: string;
 }
 
 export interface TagsResult {

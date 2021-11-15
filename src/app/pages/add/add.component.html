@@ -22,6 +22,14 @@
 				<mat-label>Mensaje</mat-label>
 				<textarea matInput [(ngModel)]="message.body" [disabled]="addSending" required name="body" class="text-box"></textarea>
 			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Tags</mat-label>
+				<input matInput [(ngModel)]="message.tag_list" [disabled]="addSending" name="tag_list">
+			</mat-form-field>
+			<p *ngIf="tags.length" class="tag-list">
+				<label>Tus tags:</label>
+				<a *ngFor="let t of tags" href="#" class="tag-item" (click)="addTag($event, t)">{{t.name}}</a>
+			</p>
 		</mat-card-content>
 		<mat-card-actions class="actions">
 			<mat-checkbox [(ngModel)]="message.is_private" name="is_private" [disabled]="addSending">Mensaje privado</mat-checkbox>

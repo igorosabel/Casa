@@ -2,6 +2,8 @@ import { MessageInterface } from 'src/app/interfaces/interfaces';
 import { Tag } from 'src/app/model/tag.model';
 
 export class Message {
+	tag_list: string = '';
+
 	constructor(
 		public id: number = -1,
 		public id_user: number = -1,
@@ -24,7 +26,8 @@ export class Message {
 			is_private: this.is_private,
 			tags: this.tags.map(x => x.toInterface()),
 			date: this.date,
-			color: this.color
+			color: this.color,
+			tag_list: this.tag_list
 		};
 	}
 }

@@ -31,6 +31,15 @@ export class AddComponent implements OnInit {
 		});
 	}
 
+	addTag(ev: MouseEvent, t: Tag): void {
+		ev.preventDefault();
+		if (this.message.tag_list.indexOf(t.name) === -1 ) {
+			let tags = this.message.tag_list.split(',').map(x => x.trim()).filter(x => x !== '');
+			tags.push(t.name);
+			this.message.tag_list = tags.join(', ');
+		}
+	}
+
 	doAdd(ev: MouseEvent): void {
 		ev.preventDefault();
 
@@ -39,7 +48,10 @@ export class AddComponent implements OnInit {
 			return;
 		}
 
-		this.addSending = true;
+		//this.addSending = true;
+
+		let tags = this.message.tag_list.split(',').map(x => x.trim()).filter(x => x !== '');
+
 		this.as.saveMessage(this.message.toInterface()).subscribe(result => {
 			if (result.status === 'ok') {
 				if (this.message.type === 0) {

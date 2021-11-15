@@ -41,7 +41,7 @@ body {
 			width: 24px;
 		}
 	}
-	
+
 	.actions-end {
 		justify-content: flex-end;
 	}
@@ -49,6 +49,27 @@ body {
 
 mat-checkbox {
 	margin: 0 8px;
+}
+
+.tag-list {
+	label {
+		display: block;
+		margin-bottom: 4px;
+	}
+
+	a {
+		display: inline-block;
+		padding: 4px 8px;
+		background-color: #ddd;
+		border-radius: 4px;
+		color: #000;
+		text-decoration: none;
+		margin-right: 4px;
+
+		&:hover {
+			background-color: #ccc;
+		}
+	}
 }
 
 @media screen and (min-width: 900px) {
