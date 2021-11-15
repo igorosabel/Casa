@@ -10,7 +10,8 @@ import {
 	StatusResult,
 	NewPassData,
 	MessageInterface,
-	TagsResult
+	TagsResult,
+	MessagesResult
 } from '../interfaces/interfaces';
 
 @Injectable()
@@ -45,5 +46,9 @@ export class ApiService {
 	
 	saveMessage(message: MessageInterface): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'api/save-message', message);
+	}
+	
+	getMessages(): Observable<MessagesResult> {
+		return this.http.post<MessagesResult>(this.apiUrl + 'api/get-messages', {});
 	}
 }

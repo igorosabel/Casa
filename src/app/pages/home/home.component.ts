@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Message } from 'src/app/model/message.model';
 import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
+import { ClassMapperService } from 'src/app/services/class-mapper.service';
 
 @Component({
 	selector: 'app-home',
@@ -11,13 +14,26 @@ export class HomeComponent implements OnInit {
 	name: string = '';
 	opened: boolean = false;
 
+	messages: Message[] = [];
+
 	constructor(
 		private us: UserService,
+		private as: ApiService,
+		private cms: ClassMapperService,
 		private router: Router
 	) {}
 
 	ngOnInit(): void {
 		this.name = this.us.user.name;
+		this.as.getMessages().subscribe(result => {
+			if (result.status === 'ok') {
+				this.messages = this.cms.getMessages(result.list);
+				console.log(this.messages);
+			}
+			else {
+				alert('¡Ocurrió un error! Vuelve a intentarlo en unos minutos por favor.');
+			}
+		});
 	}
 
 	toggleSidenav(): void {

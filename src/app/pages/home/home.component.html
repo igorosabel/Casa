@@ -35,6 +35,16 @@
 			<span class="spacer"></span>
 			<span>Hola {{name}}</span>
 		</mat-toolbar>
+		
+		<mat-card *ngFor="let message of messages" class="message">
+			<div class="message-color" [ngStyle]="{'background-color': '#'+message.color}"></div>
+			<mat-card-content>
+				{{message.body}}
+			</mat-card-content>
+			<mat-card-actions>
+				{{message.date}}
+			</mat-card-actions>
+		</mat-card>
 
 		<button mat-fab color="primary" class="fab" routerLink="/add">
 			<mat-icon>add</mat-icon>

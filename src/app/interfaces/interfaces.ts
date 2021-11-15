@@ -62,3 +62,8 @@ export interface TagsResult {
 	status: string;
 	list: TagInterface[];
 }
+
+export interface MessagesResult {
+	status: string;
+	list: MessageInterface[];
+}
