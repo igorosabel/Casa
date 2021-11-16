@@ -1,0 +1,20 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+	<button mat-icon-button routerLink="/home">
+		<mat-icon>arrow_back</mat-icon>
+	</button>
+	<span>Casa</span>
+</mat-toolbar>
+
+<mat-card *ngIf="message.id != -1" class="message">
+	<div class="message-color" [ngStyle]="{'background-color': '#'+message.color}"></div>
+	<mat-card-content>
+		{{message.body}}
+		<div *ngIf="message.type==1" class="message-task-status">
+			<mat-checkbox [(ngModel)]="message.done" (ngModelChange)="changeDone()"></mat-checkbox>
+		</div>
+	</mat-card-content>
+	<mat-card-actions class="message-footer">
+		<span>{{message.allTags}}</span>
+		<span>{{message.date}}</span>
+	</mat-card-actions>
+</mat-card>

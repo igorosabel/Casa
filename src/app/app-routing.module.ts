@@ -9,6 +9,7 @@ import { EditComponent } from './pages/edit/edit.component';
 import { LostPasswordComponent } from './pages/lost-password/lost-password.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 import { AuthGuard } from './guard/auth.guard';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
 	{ path: 'lost-password',       component: LostPasswordComponent },
 	{ path: 'new-password/:token', component: NewPasswordComponent },
 	{ path: 'home',                component: HomeComponent,    canActivate: [AuthGuard] },
+  { path: 'message/:id',         component: DetailComponent,  canActivate: [AuthGuard] },
 	{ path: 'profile',             component: ProfileComponent, canActivate: [AuthGuard] },
 	{ path: 'add',                 component: AddComponent,     canActivate: [AuthGuard] },
 	{ path: 'edit',                component: EditComponent,    canActivate: [AuthGuard] }

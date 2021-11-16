@@ -21,24 +21,3 @@
 		color: var(--blue);
 	}
 }
-
-.message {
-	width: 90%;
-	margin: 16px auto;
-
-	.message-color {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 5px;
-		height: 100%;
-		border-top-left-radius: 4px;
-		border-bottom-left-radius: 4px;
-	}
-}
-
-@media screen and (min-width: 900px) {
-	.message {
-		width: 40%;
-	}
-}

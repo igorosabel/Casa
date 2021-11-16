@@ -9,6 +9,7 @@ import { EditComponent } from './pages/edit/edit.component';
 import { LostPasswordComponent } from './pages/lost-password/lost-password.component';
 import { NewPasswordComponent } from './pages/new-password/new-password.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 export const PAGES: any[] = [
 	LoginComponent,
@@ -18,7 +19,8 @@ export const PAGES: any[] = [
 	EditComponent,
 	LostPasswordComponent,
 	NewPasswordComponent,
-	ProfileComponent
+	ProfileComponent,
+	DetailComponent
 ];
 
 /*

@@ -45,4 +45,8 @@ export class HomeComponent implements OnInit {
 		this.us.logout();
 		this.router.navigate(['/']);
 	}
+
+	goToMessage(message: Message): void {
+		this.router.navigate(['/message', message.id]);
+	}
 }

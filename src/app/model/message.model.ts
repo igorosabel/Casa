@@ -16,6 +16,11 @@ export class Message {
 		public color: string = ''
 	) {}
 
+	get allTags(): string {
+		const allTags: string[] = this.tags.map(x => x.name);
+		return allTags.join(', ');
+	}
+
 	toInterface(): MessageInterface {
 		return {
 			id: this.id,

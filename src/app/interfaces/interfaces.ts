@@ -67,3 +67,8 @@ export interface MessagesResult {
 	status: string;
 	list: MessageInterface[];
 }
+
+export interface MessageResult {
+	status: string;
+	message: MessageInterface;
+}

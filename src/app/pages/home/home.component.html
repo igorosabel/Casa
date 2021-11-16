@@ -35,14 +35,19 @@
 			<span class="spacer"></span>
 			<span>Hola {{name}}</span>
 		</mat-toolbar>
-		
-		<mat-card *ngFor="let message of messages" class="message">
+
+		<mat-card *ngFor="let message of messages" class="message message-active" (click)="goToMessage(message)">
 			<div class="message-color" [ngStyle]="{'background-color': '#'+message.color}"></div>
 			<mat-card-content>
 				{{message.body}}
+				<div *ngIf="message.type==1" class="message-task-status">
+					<img *ngIf="message.done" src="/assets/check_box_checked.svg" alt="Tarea completada">
+					<img *ngIf="!message.done" src="/assets/check_box_no_checked.svg" alt="Tarea no completada">
+				</div>
 			</mat-card-content>
-			<mat-card-actions>
-				{{message.date}}
+			<mat-card-actions class="message-footer">
+				<span>{{message.allTags}}</span>
+				<span>{{message.date}}</span>
 			</mat-card-actions>
 		</mat-card>
 

@@ -11,7 +11,8 @@ import {
 	NewPassData,
 	MessageInterface,
 	TagsResult,
-	MessagesResult
+	MessagesResult,
+	MessageResult
 } from '../interfaces/interfaces';
 
 @Injectable()
@@ -43,12 +44,20 @@ export class ApiService {
 	getTags(): Observable<TagsResult> {
 		return this.http.post<TagsResult>(this.apiUrl + 'api/get-tags', {});
 	}
-	
+
 	saveMessage(message: MessageInterface): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'api/save-message', message);
 	}
-	
+
 	getMessages(): Observable<MessagesResult> {
 		return this.http.post<MessagesResult>(this.apiUrl + 'api/get-messages', {});
+	}
+
+	getMessage(id: number): Observable<MessageResult> {
+		return this.http.post<MessageResult>(this.apiUrl + 'api/get-message', {id});
+	}
+
+	updateTask(id: number): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'api/update-task', {id});
 	}
 }
