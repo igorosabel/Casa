@@ -8,6 +8,10 @@
 
 .sidebar {
 	min-width: 20%;
+	
+	.list-selected {
+		background-color: #eee;
+	}
 
 	.red-icon {
 		color: var(--red);

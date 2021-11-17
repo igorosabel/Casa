@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
 	name: string = '';
 	opened: boolean = false;
 
+	selectedType: number = -1;
+	allMessages: Message[] = [];
 	messages: Message[] = [];
 
 	constructor(
@@ -27,8 +29,8 @@ export class HomeComponent implements OnInit {
 		this.name = this.us.user.name;
 		this.as.getMessages().subscribe(result => {
 			if (result.status === 'ok') {
+				this.allMessages = this.cms.getMessages(result.list);
 				this.messages = this.cms.getMessages(result.list);
-				console.log(this.messages);
 			}
 			else {
 				alert('¡Ocurrió un error! Vuelve a intentarlo en unos minutos por favor.');
@@ -48,5 +50,11 @@ export class HomeComponent implements OnInit {
 
 	goToMessage(message: Message): void {
 		this.router.navigate(['/message', message.id]);
+	}
+
+	selectList(type: number, ev: MouseEvent): void {
+		this.selectedType = type;
+		this.messages = this.allMessages.filter(x => x.type != type);
+		this.toggleSidenav();
 	}
 }
