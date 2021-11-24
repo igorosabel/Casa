@@ -12,4 +12,8 @@ export class ProfileComponent implements OnInit {
 
 	constructor() {}
 	ngOnInit(): void {}
+
+	doProfile(ev: MouseEvent):  void {
+		console.log(this.user);
+	}
 }
