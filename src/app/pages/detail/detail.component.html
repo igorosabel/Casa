@@ -6,7 +6,7 @@
 </mat-toolbar>
 
 <mat-card *ngIf="message.id != -1" class="message">
-	<div class="message-color" [ngStyle]="{'background-color': '#'+message.color}"></div>
+	<div class="message-color" [ngStyle]="{'background-color': message.hashColor}"></div>
 	<mat-card-content>
 		{{message.body}}
 		<div *ngIf="message.type==1" class="message-task-status">

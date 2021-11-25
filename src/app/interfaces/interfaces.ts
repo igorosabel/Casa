@@ -72,3 +72,14 @@ export interface MessageResult {
 	status: string;
 	message: MessageInterface;
 }
+
+export interface UserResult {
+	status: string;
+	user: UserInterface;
+}
+
+export interface ChangePassInterface {
+	current: string;
+	new_pass: string;
+	conf_pass: string;
+}

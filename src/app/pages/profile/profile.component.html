@@ -13,7 +13,7 @@
 		<mat-card-content class="content">
 			<mat-form-field>
 				<mat-label>Email</mat-label>
-				<input matInput [(ngModel)]="user.email" [disabled]="profileSending" name="email">
+				<input matInput type="email" [(ngModel)]="user.email" [disabled]="profileSending" name="email">
 			</mat-form-field>
 			<mat-form-field>
 				<mat-label>Nombre</mat-label>
@@ -21,13 +21,44 @@
 			</mat-form-field>
 			<mat-form-field>
 				<mat-label>Color</mat-label>
-				<input matInput type="color" [(ngModel)]="user.color" [disabled]="profileSending" name="color">
+				<input matInput type="color" [(ngModel)]="user.hashColor" [disabled]="profileSending" name="color">
 			</mat-form-field>
 		</mat-card-content>
 		<mat-card-actions class="actions actions-end">
 			<button mat-raised-button color="primary">
 				<span *ngIf="!profileSending">Continuar</span>
 				<img *ngIf="profileSending" src="/assets/loading.svg" class="loading">
+			</button>
+		</mat-card-actions>
+	</mat-card>
+</form>
+
+<form name="frm-pass" (ngSubmit)="doPass($event)">
+	<mat-card class="mat-elevation-z6 center-card">
+		<mat-card-header>
+			<mat-card-title>Cambiar contraseña</mat-card-title>
+		</mat-card-header>
+		<mat-card-content class="content">
+			<p>
+				Para cambiar tu contraseña, primero debes introducir tu contraseña actual, después la nueva contraseña y confirmarla.
+			</p>
+			<mat-form-field>
+				<mat-label>Contraseña actual</mat-label>
+				<input matInput type="password" [(ngModel)]="pass.current" [disabled]="passSending" name="current">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Nueva contraseña</mat-label>
+				<input matInput type="password" [(ngModel)]="pass.new_pass" [disabled]="passSending" name="new_pass">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>Confirmar contraseña</mat-label>
+				<input matInput type="password" [(ngModel)]="pass.conf_pass" [disabled]="passSending" name="conf_pass">
+			</mat-form-field>
+		</mat-card-content>
+		<mat-card-actions class="actions actions-end">
+			<button mat-raised-button color="primary">
+				<span *ngIf="!passSending">Continuar</span>
+				<img *ngIf="passSending" src="/assets/loading.svg" class="loading">
 			</button>
 		</mat-card-actions>
 	</mat-card>

@@ -12,7 +12,10 @@ import {
 	MessageInterface,
 	TagsResult,
 	MessagesResult,
-	MessageResult
+	MessageResult,
+	UserResult,
+	UserInterface,
+	ChangePassInterface
 } from '../interfaces/interfaces';
 
 @Injectable()
@@ -59,5 +62,17 @@ export class ApiService {
 
 	updateTask(id: number): Observable<StatusResult> {
 		return this.http.post<StatusResult>(this.apiUrl + 'api/update-task', {id});
+	}
+
+	getUser(): Observable<UserResult> {
+		return this.http.post<UserResult>(this.apiUrl + 'api/get-user', {});
+	}
+
+	updateUser(user: UserInterface): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'api/update-user', user);
+	}
+
+	updatePass(pass: ChangePassInterface): Observable<StatusResult> {
+		return this.http.post<StatusResult>(this.apiUrl + 'api/update-pass', pass);
 	}
 }

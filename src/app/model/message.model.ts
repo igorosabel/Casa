@@ -21,6 +21,14 @@ export class Message {
 		return allTags.join(', ');
 	}
 
+	get hashColor(): string {
+		return '#' + this.color;
+	}
+
+	set hashColor(color: string) {
+		this.color = color.replace('#', '');
+	}
+
 	toInterface(): MessageInterface {
 		return {
 			id: this.id,

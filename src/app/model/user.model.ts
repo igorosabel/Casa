@@ -9,6 +9,14 @@ export class User {
 		public color: string = ''
 	) {}
 
+	get hashColor(): string {
+		return '#' + this.color;
+	}
+
+	set hashColor(color: string) {
+		this.color = color.replace('#', '');
+	}
+
 	toInterface(): UserInterface {
 		return {
 			id: this.id,
