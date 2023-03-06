@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from 'src/app/modules/pages/login/login.component';
 
-import { AuthGuard } from 'src/app/guard/auth.guard';
+import { isLoggedGuardFn } from './guard/auth.guard.fn';
 
 const routes: Routes = [
   {
@@ -28,34 +28,35 @@ const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('src/app/modules/pages/home/home.component'),
-    canActivate: [AuthGuard],
+    canActivate: ['CanActivateFn'],
   },
   {
     path: 'message/:id',
     loadComponent: () =>
       import('src/app/modules/pages/detail/detail.component'),
-    canActivate: [AuthGuard],
+    canActivate: ['CanActivateFn'],
   },
   {
     path: 'profile',
     loadComponent: () =>
       import('src/app/modules/pages/profile/profile.component'),
-    canActivate: [AuthGuard],
+    canActivate: ['CanActivateFn'],
   },
   {
     path: 'add',
     loadComponent: () => import('src/app/modules/pages/add/add.component'),
-    canActivate: [AuthGuard],
+    canActivate: ['CanActivateFn'],
   },
   {
     path: 'edit',
     loadComponent: () => import('src/app/modules/pages/edit/edit.component'),
-    canActivate: [AuthGuard],
+    canActivate: ['CanActivateFn'],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [{ provide: 'CanActivateFn', useFactory: isLoggedGuardFn }],
 })
 export class AppRoutingModule {}
