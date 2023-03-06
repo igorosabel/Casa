@@ -1,0 +1,29 @@
+h1 {
+	font-size: 6em;
+	text-align: center;
+	margin: 64px 0;
+}
+
+.actions-login {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column-reverse;
+
+	button {
+		margin: 8px 0;
+	}
+
+	.loading {
+		width: 24px;
+	}
+}
+
+@media screen and (min-width: 900px) {
+	.actions-login {
+		flex-direction: row;
+
+		button {
+			margin: 0;
+		}
+	}
+}

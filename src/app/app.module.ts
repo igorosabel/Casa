@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { COMPONENTS, MATERIAL, PAGES, PIPES, SERVICES } from './app.common';
+import { SERVICES } from './app.common';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 
 import {
@@ -19,14 +19,13 @@ const appearance: MatFormFieldDefaultOptions = {
 };
 
 @NgModule({
-  declarations: [AppComponent, ...PAGES, ...COMPONENTS, ...PIPES],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ...MATERIAL,
   ],
   providers: [
     {

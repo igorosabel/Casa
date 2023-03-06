@@ -1,78 +1,88 @@
-import { HttpClient }  from '@angular/common/http';
-import { Injectable }  from '@angular/core';
-import { Observable }  from 'rxjs';
-import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import {
-	LoginData,
-	LoginResult,
-	RegisterData,
-	StatusResult,
-	NewPassData,
-	MessageInterface,
-	TagsResult,
-	MessagesResult,
-	MessageResult,
-	UserResult,
-	UserInterface,
-	ChangePassInterface
+  ChangePassInterface,
+  LoginData,
+  LoginResult,
+  MessageInterface,
+  MessageResult,
+  MessagesResult,
+  NewPassData,
+  RegisterData,
+  StatusResult,
+  TagsResult,
+  UserInterface,
+  UserResult,
 } from '../interfaces/interfaces';
 
 @Injectable()
 export class ApiService {
-	apiUrl = environment.apiUrl;
+  apiUrl: string = environment.apiUrl;
 
-	constructor(private http : HttpClient){}
+  constructor(private http: HttpClient) {}
 
-	login(data: LoginData): Observable<LoginResult> {
-		return this.http.post<LoginResult>(this.apiUrl + 'api/login', data);
-	}
+  login(data: LoginData): Observable<LoginResult> {
+    return this.http.post<LoginResult>(this.apiUrl + 'api/login', data);
+  }
 
-	register(data: RegisterData): Observable<LoginResult> {
-		return this.http.post<LoginResult>(this.apiUrl + 'api/register', data);
-	}
+  register(data: RegisterData): Observable<LoginResult> {
+    return this.http.post<LoginResult>(this.apiUrl + 'api/register', data);
+  }
 
-	recover(email: string): Observable<StatusResult> {
-		return this.http.post<StatusResult>(this.apiUrl + 'api/recover', {email});
-	}
+  recover(email: string): Observable<StatusResult> {
+    return this.http.post<StatusResult>(this.apiUrl + 'api/recover', { email });
+  }
 
-	checkPasswordToken(token: string): Observable<StatusResult> {
-		return this.http.post<StatusResult>(this.apiUrl + 'api/check-password-token', {token});
-	}
+  checkPasswordToken(token: string): Observable<StatusResult> {
+    return this.http.post<StatusResult>(
+      this.apiUrl + 'api/check-password-token',
+      { token }
+    );
+  }
 
-	newPassword(data: NewPassData): Observable<StatusResult> {
-		return this.http.post<StatusResult>(this.apiUrl + 'api/new-password', data);
-	}
+  newPassword(data: NewPassData): Observable<StatusResult> {
+    return this.http.post<StatusResult>(this.apiUrl + 'api/new-password', data);
+  }
 
-	getTags(): Observable<TagsResult> {
-		return this.http.post<TagsResult>(this.apiUrl + 'api/get-tags', {});
-	}
+  getTags(): Observable<TagsResult> {
+    return this.http.post<TagsResult>(this.apiUrl + 'api/get-tags', {});
+  }
 
-	saveMessage(message: MessageInterface): Observable<StatusResult> {
-		return this.http.post<StatusResult>(this.apiUrl + 'api/save-message', message);
-	}
+  saveMessage(message: MessageInterface): Observable<StatusResult> {
+    return this.http.post<StatusResult>(
+      this.apiUrl + 'api/save-message',
+      message
+    );
+  }
 
-	getMessages(): Observable<MessagesResult> {
-		return this.http.post<MessagesResult>(this.apiUrl + 'api/get-messages', {});
-	}
+  getMessages(): Observable<MessagesResult> {
+    return this.http.post<MessagesResult>(this.apiUrl + 'api/get-messages', {});
+  }
 
-	getMessage(id: number): Observable<MessageResult> {
-		return this.http.post<MessageResult>(this.apiUrl + 'api/get-message', {id});
-	}
+  getMessage(id: number): Observable<MessageResult> {
+    return this.http.post<MessageResult>(this.apiUrl + 'api/get-message', {
+      id,
+    });
+  }
 
-	updateTask(id: number): Observable<StatusResult> {
-		return this.http.post<StatusResult>(this.apiUrl + 'api/update-task', {id});
-	}
+  updateTask(id: number): Observable<StatusResult> {
+    return this.http.post<StatusResult>(this.apiUrl + 'api/update-task', {
+      id,
+    });
+  }
 
-	getUser(): Observable<UserResult> {
-		return this.http.post<UserResult>(this.apiUrl + 'api/get-user', {});
-	}
+  getUser(): Observable<UserResult> {
+    return this.http.post<UserResult>(this.apiUrl + 'api/get-user', {});
+  }
 
-	updateUser(user: UserInterface): Observable<StatusResult> {
-		return this.http.post<StatusResult>(this.apiUrl + 'api/update-user', user);
-	}
+  updateUser(user: UserInterface): Observable<StatusResult> {
+    return this.http.post<StatusResult>(this.apiUrl + 'api/update-user', user);
+  }
 
-	updatePass(pass: ChangePassInterface): Observable<StatusResult> {
-		return this.http.post<StatusResult>(this.apiUrl + 'api/update-pass', pass);
-	}
+  updatePass(pass: ChangePassInterface): Observable<StatusResult> {
+    return this.http.post<StatusResult>(this.apiUrl + 'api/update-pass', pass);
+  }
 }

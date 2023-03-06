@@ -1,32 +1,61 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AddComponent } from './pages/add/add.component';
-import { EditComponent } from './pages/edit/edit.component';
-import { LostPasswordComponent } from './pages/lost-password/lost-password.component';
-import { NewPasswordComponent } from './pages/new-password/new-password.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { DetailComponent } from './pages/detail/detail.component';
+import { LoginComponent } from 'src/app/modules/pages/login/login.component';
 
-import { AuthGuard } from './guard/auth.guard';
+import { AuthGuard } from 'src/app/guard/auth.guard';
 
 const routes: Routes = [
-	{ path: '',                    component: LoginComponent },
-	{ path: 'register',            component: RegisterComponent },
-	{ path: 'lost-password',       component: LostPasswordComponent },
-	{ path: 'new-password/:token', component: NewPasswordComponent },
-	{ path: 'home',                component: HomeComponent,    canActivate: [AuthGuard] },
-  { path: 'message/:id',         component: DetailComponent,  canActivate: [AuthGuard] },
-	{ path: 'profile',             component: ProfileComponent, canActivate: [AuthGuard] },
-	{ path: 'add',                 component: AddComponent,     canActivate: [AuthGuard] },
-	{ path: 'edit',                component: EditComponent,    canActivate: [AuthGuard] }
+  {
+    path: '',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('src/app/modules/pages/register/register.component'),
+  },
+  {
+    path: 'lost-password',
+    loadComponent: () =>
+      import('src/app/modules/pages/lost-password/lost-password.component'),
+  },
+  {
+    path: 'new-password/:token',
+    loadComponent: () =>
+      import('src/app/modules/pages/new-password/new-password.component'),
+  },
+  {
+    path: 'home',
+    loadComponent: () => import('src/app/modules/pages/home/home.component'),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'message/:id',
+    loadComponent: () =>
+      import('src/app/modules/pages/detail/detail.component'),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'profile',
+    loadComponent: () =>
+      import('src/app/modules/pages/profile/profile.component'),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add',
+    loadComponent: () => import('src/app/modules/pages/add/add.component'),
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'edit',
+    loadComponent: () => import('src/app/modules/pages/edit/edit.component'),
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
