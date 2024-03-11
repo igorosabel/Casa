@@ -1,9 +1,20 @@
-import { CommonModule } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+  MatCardHeader,
+  MatCardTitle,
+} from '@angular/material/card';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute, Params } from '@angular/router';
 import { NewPassData, StatusResult } from 'src/app/interfaces/interfaces';
-import { MaterialModule } from 'src/app/modules/material/material.module';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -11,7 +22,22 @@ import { ApiService } from 'src/app/services/api.service';
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.scss'],
-  imports: [CommonModule, MaterialModule, FormsModule],
+  imports: [
+    NgClass,
+    FormsModule,
+    MatToolbar,
+    MatIconButton,
+    MatButton,
+    MatIcon,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatCardActions,
+    MatFormField,
+    MatLabel,
+    MatInput,
+  ],
 })
 export default class NewPasswordComponent implements OnInit {
   data: NewPassData = {

@@ -1,9 +1,30 @@
-import { CommonModule } from '@angular/common';
+import { NgClass, NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import {
+  MatButton,
+  MatFabButton,
+  MatIconButton,
+} from '@angular/material/button';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+} from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
+import {
+  MatListItem,
+  MatListItemIcon,
+  MatNavList,
+} from '@angular/material/list';
+import {
+  MatSidenav,
+  MatSidenavContainer,
+  MatSidenavContent,
+} from '@angular/material/sidenav';
+import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
 import { MessagesResult } from 'src/app/interfaces/interfaces';
 import { Message } from 'src/app/model/message.model';
-import { MaterialModule } from 'src/app/modules/material/material.module';
 import { ApiService } from 'src/app/services/api.service';
 import { ClassMapperService } from 'src/app/services/class-mapper.service';
 import { UserService } from 'src/app/services/user.service';
@@ -13,7 +34,26 @@ import { UserService } from 'src/app/services/user.service';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [CommonModule, MaterialModule, RouterModule],
+  imports: [
+    NgClass,
+    NgStyle,
+    RouterModule,
+    MatSidenavContainer,
+    MatSidenav,
+    MatSidenavContent,
+    MatToolbar,
+    MatToolbarRow,
+    MatNavList,
+    MatListItem,
+    MatIcon,
+    MatListItemIcon,
+    MatCard,
+    MatCardContent,
+    MatCardActions,
+    MatButton,
+    MatIconButton,
+    MatFabButton,
+  ],
 })
 export default class HomeComponent implements OnInit {
   name: string = '';
@@ -59,6 +99,7 @@ export default class HomeComponent implements OnInit {
   }
 
   selectList(type: number, ev: MouseEvent): void {
+    ev && ev.preventDefault();
     this.selectedType = type;
     this.messages = this.allMessages.filter(
       (x: Message): boolean => x.type != type

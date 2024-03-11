@@ -1,9 +1,18 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatButton } from '@angular/material/button';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+  MatCardHeader,
+  MatCardTitle,
+} from '@angular/material/card';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
+import { Router, RouterLink } from '@angular/router';
 import { LoginData, LoginResult } from 'src/app/interfaces/interfaces';
-import { MaterialModule } from 'src/app/modules/material/material.module';
 import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
 import { Utils } from 'src/app/services/utils.class';
@@ -13,9 +22,22 @@ import { Utils } from 'src/app/services/utils.class';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports: [CommonModule, MaterialModule, FormsModule],
+  imports: [
+    NgClass,
+    FormsModule,
+    RouterLink,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatCardActions,
+    MatButton,
+    MatFormField,
+    MatLabel,
+    MatInput,
+  ],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   loginData: LoginData = {
     email: '',
     pass: '',
@@ -27,8 +49,6 @@ export class LoginComponent implements OnInit {
     private us: UserService,
     private router: Router
   ) {}
-
-  ngOnInit(): void {}
 
   doLogin(ev: MouseEvent): void {
     ev.preventDefault();

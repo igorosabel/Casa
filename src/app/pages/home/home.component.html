@@ -15,21 +15,21 @@
 			</a>
 			<a mat-list-item
 			   (click)="selectList(-1, $event)"
-			   [ngClass]="{'list-selected': selectedType==-1}">
+			   [ngClass]="{'list-selected': selectedType === -1}">
 				<mat-icon matListIcon
 						  class="blue-icon">list</mat-icon>
 				Todos
 			</a>
 			<a mat-list-item
 			   (click)="selectList(1, $event)"
-			   [ngClass]="{'list-selected': selectedType==1}">
+			   [ngClass]="{'list-selected': selectedType === 1}">
 				<mat-icon matListIcon
 						  class="green-icon">article</mat-icon>
 				Mensajes
 			</a>
 			<a mat-list-item
 			   (click)="selectList(0, $event)"
-			   [ngClass]="{'list-selected': selectedType==0}">
+			   [ngClass]="{'list-selected': selectedType === 0}">
 				<mat-icon matListIcon
 						  class="red-icon">fact_check</mat-icon>
 				Tareas
@@ -55,28 +55,32 @@
 			<span>Hola {{name}}</span>
 		</mat-toolbar>
 
-		<mat-card *ngFor="let message of messages"
-				  class="message message-active"
+		@for (message of messages; track message.id) {
+		<mat-card class="message message-active"
 				  (click)="goToMessage(message)">
 			<div class="message-color"
 				 [ngStyle]="{'background-color': message.hashColor}"></div>
 			<mat-card-content>
 				{{message.body}}
-				<div *ngIf="message.type==1"
-					 class="message-task-status">
-					<img *ngIf="message.done"
-						 src="/assets/check_box_checked.svg"
+				@if (message.type === 1) {
+				<div class="message-task-status">
+					@if (message.done) {
+					<img src="/assets/check_box_checked.svg"
 						 alt="Tarea completada">
-					<img *ngIf="!message.done"
-						 src="/assets/check_box_no_checked.svg"
+					}
+					@else {
+					<img src="/assets/check_box_no_checked.svg"
 						 alt="Tarea no completada">
+					}
 				</div>
+				}
 			</mat-card-content>
 			<mat-card-actions class="message-footer">
 				<span>{{message.allTags}}</span>
 				<span>{{message.date}}</span>
 			</mat-card-actions>
 		</mat-card>
+		}
 
 		<button mat-fab
 				color="primary"

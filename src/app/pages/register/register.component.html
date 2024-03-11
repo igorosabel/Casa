@@ -53,10 +53,14 @@
 			<button mat-raised-button
 					color="primary"
 					[disabled]="registerSending">
-				<span *ngIf="!registerSending">Continuar</span>
-				<img *ngIf="registerSending"
-					 src="/assets/loading.svg"
-					 class="loading">
+				@if (!registerSending) {
+				<span>Continuar</span>
+				}
+				@else {
+				<img src="/assets/loading.svg"
+					 class="loading"
+					 alt="Cargando...">
+				}
 			</button>
 		</mat-card-actions>
 	</mat-card>

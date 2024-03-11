@@ -1,10 +1,18 @@
-import { CommonModule } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatIconButton } from '@angular/material/button';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+} from '@angular/material/card';
+import { MatCheckbox } from '@angular/material/checkbox';
+import { MatIcon } from '@angular/material/icon';
+import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { MessageResult, StatusResult } from 'src/app/interfaces/interfaces';
 import { Message } from 'src/app/model/message.model';
-import { MaterialModule } from 'src/app/modules/material/material.module';
 import { ApiService } from 'src/app/services/api.service';
 import { ClassMapperService } from 'src/app/services/class-mapper.service';
 
@@ -12,7 +20,18 @@ import { ClassMapperService } from 'src/app/services/class-mapper.service';
   standalone: true,
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  imports: [CommonModule, MaterialModule, FormsModule, RouterModule],
+  imports: [
+    NgStyle,
+    FormsModule,
+    RouterModule,
+    MatToolbar,
+    MatIconButton,
+    MatIcon,
+    MatCard,
+    MatCardContent,
+    MatCardActions,
+    MatCheckbox,
+  ],
 })
 export default class DetailComponent implements OnInit {
   message: Message = new Message();

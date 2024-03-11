@@ -1,9 +1,20 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import {
+  MatCard,
+  MatCardActions,
+  MatCardContent,
+  MatCardHeader,
+  MatCardTitle,
+} from '@angular/material/card';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { MatInput } from '@angular/material/input';
+import { MatToolbar } from '@angular/material/toolbar';
+import { Router, RouterLink } from '@angular/router';
 import { LoginResult, RegisterData } from 'src/app/interfaces/interfaces';
-import { MaterialModule } from 'src/app/modules/material/material.module';
 import { ApiService } from 'src/app/services/api.service';
 import { UserService } from 'src/app/services/user.service';
 import { Utils } from 'src/app/services/utils.class';
@@ -12,9 +23,25 @@ import { Utils } from 'src/app/services/utils.class';
   standalone: true,
   selector: 'app-register',
   templateUrl: './register.component.html',
-  imports: [CommonModule, MaterialModule, FormsModule],
+  imports: [
+    NgClass,
+    FormsModule,
+    RouterLink,
+    MatToolbar,
+    MatIconButton,
+    MatButton,
+    MatIcon,
+    MatCard,
+    MatCardHeader,
+    MatCardTitle,
+    MatCardContent,
+    MatCardActions,
+    MatFormField,
+    MatLabel,
+    MatInput,
+  ],
 })
-export default class RegisterComponent implements OnInit {
+export default class RegisterComponent {
   registerData: RegisterData = {
     email: '',
     name: '',
@@ -28,8 +55,6 @@ export default class RegisterComponent implements OnInit {
     private us: UserService,
     private router: Router
   ) {}
-
-  ngOnInit(): void {}
 
   doRegister(ev: MouseEvent): void {
     ev.preventDefault();

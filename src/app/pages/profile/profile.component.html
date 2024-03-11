@@ -41,10 +41,14 @@
 		<mat-card-actions class="actions actions-end">
 			<button mat-raised-button
 					color="primary">
-				<span *ngIf="!profileSending">Continuar</span>
-				<img *ngIf="profileSending"
-					 src="/assets/loading.svg"
-					 class="loading">
+				@if (!profileSending) {
+				<span>Continuar</span>
+				}
+				@else {
+				<img src="/assets/loading.svg"
+					 class="loading"
+					 alt="Cargando...">
+				}
 			</button>
 		</mat-card-actions>
 	</mat-card>
@@ -88,10 +92,14 @@
 		<mat-card-actions class="actions actions-end">
 			<button mat-raised-button
 					color="primary">
-				<span *ngIf="!passSending">Continuar</span>
-				<img *ngIf="passSending"
-					 src="/assets/loading.svg"
-					 class="loading">
+				@if (!passSending) {
+				<span>Continuar</span>
+				}
+				@else {
+				<img src="/assets/loading.svg"
+					 class="loading"
+					 alt="Cargando...">
+				}
 			</button>
 		</mat-card-actions>
 	</mat-card>

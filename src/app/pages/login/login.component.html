@@ -27,18 +27,24 @@
 		</mat-card-content>
 		<mat-card-actions class="actions-login">
 			<button mat-button
+					type="button"
 					routerLink="/register"
 					[disabled]="loginSending">Registro</button>
 			<button mat-button
+					type="button"
 					routerLink="/lost-password"
 					[disabled]="loginSending">¿Has olvidado tu contraseña?</button>
 			<button mat-raised-button
 					color="primary"
 					[disabled]="loginSending">
-				<span *ngIf="!loginSending">Continuar</span>
-				<img *ngIf="loginSending"
-					 src="/assets/loading.svg"
-					 class="loading">
+				@if (!loginSending) {
+				<span>Continuar</span>
+				}
+				@else {
+				<img src="/assets/loading.svg"
+					 class="loading"
+					 alt="Cargando...">
+				}
 			</button>
 		</mat-card-actions>
 	</mat-card>

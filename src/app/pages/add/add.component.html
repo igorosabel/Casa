@@ -18,10 +18,11 @@
 							 name="type"
 							 [disabled]="addSending">
 				<div class="row">
-					<div class="col"
-						 *ngFor="let type of types">
+					@for (type of types; track type.id) {
+					<div class="col">
 						<mat-radio-button [value]="type.id">{{type.name}}</mat-radio-button>
 					</div>
+					}
 				</div>
 			</mat-radio-group>
 			<mat-form-field>
@@ -40,14 +41,16 @@
 					   [disabled]="addSending"
 					   name="tag_list">
 			</mat-form-field>
-			<p *ngIf="tags.length"
-			   class="tag-list">
+			@if (tags.length) {
+			<p class="tag-list">
 				<label>Tus tags:</label>
-				<a *ngFor="let t of tags"
-				   href="#"
+				@for (t of tags; track t.id) {
+				<a href="#"
 				   class="tag-item"
 				   (click)="addTag($event, t)">{{t.name}}</a>
+				}
 			</p>
+			}
 		</mat-card-content>
 		<mat-card-actions class="actions">
 			<mat-checkbox [(ngModel)]="message.is_private"
@@ -56,10 +59,14 @@
 			<button mat-raised-button
 					color="primary"
 					[disabled]="addSending">
-				<span *ngIf="!addSending">Continuar</span>
-				<img *ngIf="addSending"
-					 src="/assets/loading.svg"
-					 class="loading">
+				@if (!addSending) {
+				<span>Continuar</span>
+				}
+				@if (addSending) {
+				<img src="/assets/loading.svg"
+					 class="loading"
+					 alt="Cargando...">
+				}
 			</button>
 		</mat-card-actions>
 	</mat-card>
