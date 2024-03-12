@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserInterface } from 'src/app/interfaces/interfaces';
+import { UserInterface } from 'src/app/interfaces/user.interfaces';
 import { User } from 'src/app/model/user.model';
 import { ClassMapperService } from 'src/app/services/class-mapper.service';
 import { DataShareService } from 'src/app/services/data-share.service';

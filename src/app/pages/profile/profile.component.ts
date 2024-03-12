@@ -14,11 +14,11 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
+import { StatusResult } from 'src/app/interfaces/interfaces';
 import {
   ChangePassInterface,
-  StatusResult,
   UserResult,
-} from 'src/app/interfaces/interfaces';
+} from 'src/app/interfaces/user.interfaces';
 import { User } from 'src/app/model/user.model';
 import { ApiService } from 'src/app/services/api.service';
 import { ClassMapperService } from 'src/app/services/class-mapper.service';

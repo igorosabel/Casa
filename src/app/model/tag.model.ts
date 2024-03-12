@@ -1,4 +1,4 @@
-import { TagInterface } from 'src/app/interfaces/interfaces';
+import { TagInterface } from 'src/app/interfaces/message.interfaces';
 import { Utils } from 'src/app/services/utils.class';
 
 export class Tag {

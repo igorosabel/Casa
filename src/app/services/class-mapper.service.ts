@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   MessageInterface,
   TagInterface,
-  UserInterface,
-} from 'src/app/interfaces/interfaces';
+} from 'src/app/interfaces/message.interfaces';
+import { UserInterface } from 'src/app/interfaces/user.interfaces';
 import { Message } from 'src/app/model/message.model';
 import { Tag } from 'src/app/model/tag.model';
 import { User } from 'src/app/model/user.model';

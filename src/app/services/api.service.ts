@@ -1,22 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-
 import {
-  ChangePassInterface,
   LoginData,
   LoginResult,
+  RegisterData,
+  StatusResult,
+} from 'src/app/interfaces/interfaces';
+import {
   MessageInterface,
   MessageResult,
   MessagesResult,
-  NewPassData,
-  RegisterData,
-  StatusResult,
   TagsResult,
+} from 'src/app/interfaces/message.interfaces';
+import {
+  ChangePassInterface,
+  NewPassData,
   UserInterface,
   UserResult,
-} from '../interfaces/interfaces';
+} from 'src/app/interfaces/user.interfaces';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ApiService {

@@ -14,7 +14,8 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute, Params } from '@angular/router';
-import { NewPassData, StatusResult } from 'src/app/interfaces/interfaces';
+import { StatusResult } from 'src/app/interfaces/interfaces';
+import { NewPassData } from 'src/app/interfaces/user.interfaces';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({

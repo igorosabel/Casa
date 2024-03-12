@@ -16,11 +16,11 @@ import { MatInput } from '@angular/material/input';
 import { MatRadioButton } from '@angular/material/radio';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
+import { StatusResult } from 'src/app/interfaces/interfaces';
 import {
   MessageTypeInterface,
-  StatusResult,
   TagsResult,
-} from 'src/app/interfaces/interfaces';
+} from 'src/app/interfaces/message.interfaces';
 import { Message } from 'src/app/model/message.model';
 import { Tag } from 'src/app/model/tag.model';
 import { ApiService } from 'src/app/services/api.service';

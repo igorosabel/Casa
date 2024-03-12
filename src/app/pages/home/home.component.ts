@@ -23,7 +23,7 @@ import {
 } from '@angular/material/sidenav';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
-import { MessagesResult } from 'src/app/interfaces/interfaces';
+import { MessagesResult } from 'src/app/interfaces/message.interfaces';
 import { Message } from 'src/app/model/message.model';
 import { ApiService } from 'src/app/services/api.service';
 import { ClassMapperService } from 'src/app/services/class-mapper.service';

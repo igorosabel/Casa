@@ -1,4 +1,4 @@
-import { UserInterface } from 'src/app/interfaces/interfaces';
+import { UserInterface } from 'src/app/interfaces/user.interfaces';
 import { Utils } from 'src/app/services/utils.class';
 
 export class User {
