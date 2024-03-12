@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { JsonPipe, NgClass } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
@@ -49,13 +49,14 @@ import { ClassMapperService } from 'src/app/services/class-mapper.service';
     MatInput,
     MatLabel,
     MatCheckbox,
+    JsonPipe,
   ],
 })
 export default class AddComponent implements OnInit {
   message: Message = new Message();
   tags: Tag[] = [];
   addSending: boolean = false;
-  types: MessageTypeInterface[] = [
+  messageTypes: MessageTypeInterface[] = [
     { id: 0, name: 'Mensaje' },
     { id: 1, name: 'Tarea' },
   ];
@@ -74,19 +75,17 @@ export default class AddComponent implements OnInit {
 
   addTag(ev: MouseEvent, t: Tag): void {
     ev.preventDefault();
-    if (this.message.tag_list.indexOf(t.name) === -1) {
-      const tags: string[] = this.message.tag_list
+    if (this.message.tagList.indexOf(t.name) === -1) {
+      const tags: string[] = this.message.tagList
         .split(',')
         .map((x: string): string => x.trim())
         .filter((x: string): boolean => x !== '');
       tags.push(t.name);
-      this.message.tag_list = tags.join(', ');
+      this.message.tagList = tags.join(', ');
     }
   }
 
-  doAdd(ev: MouseEvent): void {
-    ev.preventDefault();
-
+  doAdd(): void {
     if (this.message.body === '') {
       alert('¡No puedes dejar el mensaje en blanco!');
       return;
@@ -94,11 +93,13 @@ export default class AddComponent implements OnInit {
 
     //this.addSending = true;
 
-    const tags: string[] = this.message.tag_list
+    const tags: string[] = this.message.tagList
       .split(',')
       .map((x: string): string => x.trim())
       .filter((x: string): boolean => x !== '');
 
+    console.log(this.message.toInterface());
+    return;
     this.as
       .saveMessage(this.message.toInterface())
       .subscribe((result: StatusResult): void => {

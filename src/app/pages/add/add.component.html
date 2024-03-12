@@ -7,67 +7,63 @@
 	<span>Casa</span>
 </mat-toolbar>
 
-<form name="frm-add"
-	  (ngSubmit)="doAdd($event)">
-	<mat-card class="mat-elevation-z6 center-card">
-		<mat-card-header>
-			<mat-card-title>Nuevo mensaje</mat-card-title>
-		</mat-card-header>
-		<mat-card-content class="content">
-			<mat-radio-group [(ngModel)]="message.type"
-							 name="type"
-							 [disabled]="addSending">
-				<div class="row">
-					@for (type of types; track type.id) {
-					<div class="col">
-						<mat-radio-button [value]="type.id">{{type.name}}</mat-radio-button>
-					</div>
-					}
+<mat-card class="mat-elevation-z6 center-card">
+	<mat-card-header>
+		<mat-card-title>Nuevo mensaje</mat-card-title>
+	</mat-card-header>
+	<mat-card-content class="content">
+		<mat-radio-group [(ngModel)]="message.type"
+						 name="messageType"
+						 [disabled]="addSending">
+			<div class="row">
+				@for (messageType of messageTypes; track messageType.id) {
+				<div class="col">
+					{{messageType | json}} - {{messageType.id}} - {{message.type}}
+					<mat-radio-button [value]="messageType.id">{{messageType.name}}</mat-radio-button>
 				</div>
-			</mat-radio-group>
-			<mat-form-field>
-				<mat-label>Mensaje</mat-label>
-				<textarea matInput
-						  [(ngModel)]="message.body"
-						  [disabled]="addSending"
-						  required
-						  name="body"
-						  class="text-box"></textarea>
-			</mat-form-field>
-			<mat-form-field>
-				<mat-label>Tags</mat-label>
-				<input matInput
-					   [(ngModel)]="message.tag_list"
-					   [disabled]="addSending"
-					   name="tag_list">
-			</mat-form-field>
-			@if (tags.length) {
-			<p class="tag-list">
-				<label>Tus tags:</label>
-				@for (t of tags; track t.id) {
-				<a href="#"
-				   class="tag-item"
-				   (click)="addTag($event, t)">{{t.name}}</a>
 				}
-			</p>
+			</div>
+		</mat-radio-group>
+		<mat-form-field>
+			<mat-label>Mensaje</mat-label>
+			<textarea matInput
+					  [(ngModel)]="message.body"
+					  [disabled]="addSending"
+					  required
+					  class="text-box"></textarea>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Tags</mat-label>
+			<input matInput
+				   [(ngModel)]="message.tagList"
+				   [disabled]="addSending">
+		</mat-form-field>
+		@if (tags.length) {
+		<p class="tag-list">
+			<label>Tus tags:</label>
+			@for (t of tags; track t.id) {
+			<a href="#"
+			   class="tag-item"
+			   (click)="addTag($event, t)">{{t.name}}</a>
 			}
-		</mat-card-content>
-		<mat-card-actions class="actions">
-			<mat-checkbox [(ngModel)]="message.is_private"
-						  name="is_private"
-						  [disabled]="addSending">Mensaje privado</mat-checkbox>
-			<button mat-raised-button
-					color="primary"
-					[disabled]="addSending">
-				@if (!addSending) {
-				<span>Continuar</span>
-				}
-				@if (addSending) {
-				<img src="/assets/loading.svg"
-					 class="loading"
-					 alt="Cargando...">
-				}
-			</button>
-		</mat-card-actions>
-	</mat-card>
-</form>
+		</p>
+		}
+	</mat-card-content>
+	<mat-card-actions class="actions">
+		<mat-checkbox [(ngModel)]="message.isPrivate"
+					  [disabled]="addSending">Mensaje privado</mat-checkbox>
+		<button mat-raised-button
+				color="primary"
+				[disabled]="addSending"
+				(click)="doAdd()">
+			@if (!addSending) {
+			<span>Continuar</span>
+			}
+			@if (addSending) {
+			<img src="/assets/loading.svg"
+				 class="loading"
+				 alt="Cargando...">
+			}
+		</button>
+	</mat-card-actions>
+</mat-card>

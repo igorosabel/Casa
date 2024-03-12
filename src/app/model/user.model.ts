@@ -1,13 +1,15 @@
 import { UserInterface } from 'src/app/interfaces/user.interfaces';
 import { Utils } from 'src/app/services/utils.class';
+import { Family } from './family.model';
 
 export class User {
   constructor(
-    public id: number = -1,
+    public id: number | null = null,
     public name: string = '',
     public email: string = '',
     public token: string = '',
-    public color: string = 'ff0000'
+    public color: string = 'ff0000',
+    public family: Family | null = null
   ) {}
 
   get hashColor(): string {
@@ -24,6 +26,9 @@ export class User {
     this.email = Utils.urldecode(u.email);
     this.token = u.token;
     this.color = u.color;
+    if (u.family !== null) {
+      this.family = new Family().fromInterface(u.family);
+    }
 
     return this;
   }
@@ -35,6 +40,7 @@ export class User {
       email: this.email,
       token: this.token,
       color: this.color,
+      family: this.family !== null ? this.family.toInterface() : null,
     };
   }
 }

@@ -14,6 +14,7 @@ import { MatIcon } from '@angular/material/icon';
 import {
   MatListItem,
   MatListItemIcon,
+  MatListItemLine,
   MatNavList,
 } from '@angular/material/list';
 import {
@@ -47,6 +48,7 @@ import { UserService } from 'src/app/services/user.service';
     MatListItem,
     MatIcon,
     MatListItemIcon,
+    MatListItemLine,
     MatCard,
     MatCardContent,
     MatCardActions,

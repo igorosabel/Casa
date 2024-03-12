@@ -5,16 +5,16 @@ export interface TagInterface {
 }
 
 export interface MessageInterface {
-  id: number;
-  id_user: number;
+  id: number | null;
+  idUser: number;
   body: string;
   type: number;
   done: boolean;
-  is_private: boolean;
+  isPrivate: boolean;
   tags: TagInterface[];
   date: string;
   color: string;
-  tag_list?: string;
+  tagList?: string;
 }
 
 export interface TagsResult {

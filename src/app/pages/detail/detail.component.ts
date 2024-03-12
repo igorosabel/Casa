@@ -57,12 +57,14 @@ export default class DetailComponent implements OnInit {
   }
 
   changeDone(): void {
-    this.as
-      .updateTask(this.message.id)
-      .subscribe((result: StatusResult): void => {
-        if (result.status === 'error') {
-          alert('¡Ocurrió un error al actualizar el estado de la tarea!');
-        }
-      });
+    if (this.message.id) {
+      this.as
+        .updateTask(this.message.id)
+        .subscribe((result: StatusResult): void => {
+          if (result.status === 'error') {
+            alert('¡Ocurrió un error al actualizar el estado de la tarea!');
+          }
+        });
+    }
   }
 }

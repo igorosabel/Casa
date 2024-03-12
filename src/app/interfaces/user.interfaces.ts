@@ -1,9 +1,21 @@
-export interface UserInterface {
+export interface FamilyInterface {
   id: number;
+  name: string;
+  members: MemberInterface[];
+}
+
+export interface MemberInterface {
+  idUser: number;
+  isAdmin: boolean;
+}
+
+export interface UserInterface {
+  id: number | null;
   name: string;
   email: string;
   token: string;
   color: string;
+  family: FamilyInterface | null;
 }
 
 export interface NewPassData {
