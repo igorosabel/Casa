@@ -1,6 +1,6 @@
-<mat-toolbar color="primary"
-			 class="mat-elevation-z6">
+<mat-toolbar class="header mat-elevation-z6">
 	<button mat-icon-button
+			class="header-icon"
 			routerLink="/">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
@@ -50,14 +50,14 @@
 			</mat-form-field>
 		</mat-card-content>
 		<mat-card-actions class="actions actions-end">
-			<button mat-raised-button
+			<button mat-flat-button
 					color="primary"
 					[disabled]="registerSending">
 				@if (!registerSending) {
 				<span>Continuar</span>
 				}
 				@else {
-				<img src="/assets/loading.svg"
+				<img src="/img/loading.svg"
 					 class="loading"
 					 alt="Cargando...">
 				}

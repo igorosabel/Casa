@@ -2,7 +2,7 @@
 	<mat-sidenav class="sidebar"
 				 #sidenav
 				 [(opened)]="opened">
-		<mat-toolbar color="primary">
+		<mat-toolbar class="header">
 			<mat-toolbar-row>
 				<span>Casa</span>
 			</mat-toolbar-row>
@@ -49,9 +49,9 @@
 
 	<mat-sidenav-content>
 
-		<mat-toolbar color="primary"
-					 class="mat-elevation-z6">
+		<mat-toolbar class="header mat-elevation-z6">
 			<button mat-icon-button
+					class="header-icon"
 					(click)="toggleSidenav()">
 				<mat-icon>menu</mat-icon>
 			</button>
@@ -70,11 +70,11 @@
 				@if (message.type === 1) {
 				<div class="message-task-status">
 					@if (message.done) {
-					<img src="/assets/check_box_checked.svg"
+					<img src="/img/check_box_checked.svg"
 						 alt="Tarea completada">
 					}
 					@else {
-					<img src="/assets/check_box_no_checked.svg"
+					<img src="/img/check_box_no_checked.svg"
 						 alt="Tarea no completada">
 					}
 				</div>

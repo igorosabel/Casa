@@ -34,14 +34,14 @@
 					type="button"
 					routerLink="/lost-password"
 					[disabled]="loginSending">¿Has olvidado tu contraseña?</button>
-			<button mat-raised-button
+			<button mat-flat-button
 					color="primary"
 					[disabled]="loginSending">
 				@if (!loginSending) {
 				<span>Continuar</span>
 				}
 				@else {
-				<img src="/assets/loading.svg"
+				<img src="/img/loading.svg"
 					 class="loading"
 					 alt="Cargando...">
 				}

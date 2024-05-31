@@ -1,17 +1,30 @@
 :root {
+	--main-color: #3f51b5;
+	--bg-color: #f7f7f7;
 	--red: #f00;
 	--green: #0cb324;
-	--blue: #0524db
+	--blue: #0524db;
+	--white: #fff;
 }
 
-html, body {
+html,
+body {
 	height: 100%;
 }
 
 body {
 	margin: 0;
 	font-family: Roboto, "Helvetica Neue", sans-serif;
-	background-color: #f7f7f7;
+	background-color: var(--bg-color);
+}
+
+.header {
+	background-color: var(--main-color) !important;
+	color: var(--white) !important;
+
+	.header-icon {
+		color: var(--white);
+	}
 }
 
 .spacer {
@@ -19,9 +32,9 @@ body {
 }
 
 .fab {
-    position: fixed !important;
-    right: 1em;
-    bottom: 1em;
+	position: fixed !important;
+	right: 1em;
+	bottom: 1em;
 }
 
 .center-card {

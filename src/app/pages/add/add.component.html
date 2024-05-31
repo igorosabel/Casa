@@ -1,6 +1,6 @@
-<mat-toolbar color="primary"
-			 class="mat-elevation-z6">
+<mat-toolbar class="header mat-elevation-z6">
 	<button mat-icon-button
+			class="header-icon"
 			routerLink="/home">
 		<mat-icon>arrow_back</mat-icon>
 	</button>
@@ -52,7 +52,7 @@
 	<mat-card-actions class="actions">
 		<mat-checkbox [(ngModel)]="message.isPrivate"
 					  [disabled]="addSending">Mensaje privado</mat-checkbox>
-		<button mat-raised-button
+		<button mat-flat-button
 				color="primary"
 				[disabled]="addSending"
 				(click)="doAdd()">
@@ -60,7 +60,7 @@
 			<span>Continuar</span>
 			}
 			@if (addSending) {
-			<img src="/assets/loading.svg"
+			<img src="/img/loading.svg"
 				 class="loading"
 				 alt="Cargando...">
 			}
