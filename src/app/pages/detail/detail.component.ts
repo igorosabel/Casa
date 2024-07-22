@@ -1,5 +1,5 @@
 import { NgStyle } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import {
@@ -11,11 +11,11 @@ import { MatCheckbox } from '@angular/material/checkbox';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
-import { StatusResult } from 'src/app/interfaces/interfaces';
-import { MessageResult } from 'src/app/interfaces/message.interfaces';
-import { Message } from 'src/app/model/message.model';
-import { ApiService } from 'src/app/services/api.service';
-import { ClassMapperService } from 'src/app/services/class-mapper.service';
+import { StatusResult } from '@interfaces/interfaces';
+import { MessageResult } from '@interfaces/message.interfaces';
+import Message from '@model/message.model';
+import ApiService from '@services/api.service';
+import ClassMapperService from '@services/class-mapper.service';
 
 @Component({
   standalone: true,
@@ -35,13 +35,11 @@ import { ClassMapperService } from 'src/app/services/class-mapper.service';
   ],
 })
 export default class DetailComponent implements OnInit {
-  message: Message = new Message();
+  private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  private as: ApiService = inject(ApiService);
+  private cms: ClassMapperService = inject(ClassMapperService);
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private as: ApiService,
-    private cms: ClassMapperService
-  ) {}
+  message: Message = new Message();
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params): void => {

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import {
@@ -14,9 +14,9 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-import { StatusResult } from 'src/app/interfaces/interfaces';
-import { ApiService } from 'src/app/services/api.service';
-import { Utils } from 'src/app/services/utils.class';
+import { StatusResult } from '@interfaces/interfaces';
+import ApiService from '@services/api.service';
+import Utils from '@services/utils.class';
 
 @Component({
   standalone: true,
@@ -41,10 +41,10 @@ import { Utils } from 'src/app/services/utils.class';
   ],
 })
 export default class LostPasswordComponent {
+  private as: ApiService = inject(ApiService);
+
   email: string = '';
   lostSending: boolean = false;
-
-  constructor(private as: ApiService) {}
 
   doRecover(ev: MouseEvent): void {
     ev.preventDefault();

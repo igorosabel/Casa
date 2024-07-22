@@ -23,9 +23,7 @@
       "@env/*": ["src/environments/*"],
       "@interfaces/*": ["src/app/interfaces/*"],
       "@model/*": ["src/app/model/*"],
-      "@modules/*": ["src/app/modules/*"],
-      "@pages/*": ["src/app/modules/pages/*"],
-      "@shared/*": ["src/app/modules/shared/*"],
+      "@pages/*": ["src/app/pages/*"],
       "@services/*": ["src/app/services/*"]
     }
   },

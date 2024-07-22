@@ -1,8 +1,8 @@
-import { UserInterface } from 'src/app/interfaces/user.interfaces';
-import { Utils } from 'src/app/services/utils.class';
-import { Family } from './family.model';
+import { UserInterface } from '@interfaces/user.interfaces';
+import Family from '@model/family.model';
+import Utils from '@services/utils.class';
 
-export class User {
+export default class User {
   constructor(
     public id: number | null = null,
     public name: string = '',

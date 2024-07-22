@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import {
@@ -14,9 +14,9 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { ActivatedRoute, Params } from '@angular/router';
-import { StatusResult } from 'src/app/interfaces/interfaces';
-import { NewPassData } from 'src/app/interfaces/user.interfaces';
-import { ApiService } from 'src/app/services/api.service';
+import { StatusResult } from '@interfaces/interfaces';
+import { NewPassData } from '@interfaces/user.interfaces';
+import ApiService from '@services/api.service';
 
 @Component({
   standalone: true,
@@ -41,6 +41,9 @@ import { ApiService } from 'src/app/services/api.service';
   ],
 })
 export default class NewPasswordComponent implements OnInit {
+  private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
+  private as: ApiService = inject(ApiService);
+
   data: NewPassData = {
     pass: '',
     conf: '',
@@ -48,8 +51,6 @@ export default class NewPasswordComponent implements OnInit {
   };
   checkingLink: number = 0;
   newPasswordSending: boolean = false;
-
-  constructor(private activatedRoute: ActivatedRoute, private as: ApiService) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params: Params): void => {

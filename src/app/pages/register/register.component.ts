@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import {
@@ -14,10 +14,10 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router, RouterLink } from '@angular/router';
-import { LoginResult, RegisterData } from 'src/app/interfaces/interfaces';
-import { ApiService } from 'src/app/services/api.service';
-import { UserService } from 'src/app/services/user.service';
-import { Utils } from 'src/app/services/utils.class';
+import { LoginResult, RegisterData } from '@interfaces/interfaces';
+import ApiService from '@services/api.service';
+import UserService from '@services/user.service';
+import Utils from '@services/utils.class';
 
 @Component({
   standalone: true,
@@ -42,6 +42,10 @@ import { Utils } from 'src/app/services/utils.class';
   ],
 })
 export default class RegisterComponent {
+  private as: ApiService = inject(ApiService);
+  private us: UserService = inject(UserService);
+  private router: Router = inject(Router);
+
   registerData: RegisterData = {
     email: '',
     name: '',
@@ -49,12 +53,6 @@ export default class RegisterComponent {
     conf_pass: '',
   };
   registerSending: boolean = false;
-
-  constructor(
-    private as: ApiService,
-    private us: UserService,
-    private router: Router
-  ) {}
 
   doRegister(ev: MouseEvent): void {
     ev.preventDefault();

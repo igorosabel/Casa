@@ -1,5 +1,5 @@
 import { JsonPipe, NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import {
@@ -16,15 +16,15 @@ import { MatInput } from '@angular/material/input';
 import { MatRadioButton } from '@angular/material/radio';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
-import { StatusResult } from 'src/app/interfaces/interfaces';
+import { StatusResult } from '@interfaces/interfaces';
 import {
   MessageTypeInterface,
   TagsResult,
-} from 'src/app/interfaces/message.interfaces';
-import { Message } from 'src/app/model/message.model';
-import { Tag } from 'src/app/model/tag.model';
-import { ApiService } from 'src/app/services/api.service';
-import { ClassMapperService } from 'src/app/services/class-mapper.service';
+} from '@interfaces/message.interfaces';
+import Message from '@model/message.model';
+import Tag from '@model/tag.model';
+import ApiService from '@services/api.service';
+import ClassMapperService from '@services/class-mapper.service';
 
 @Component({
   standalone: true,
@@ -53,6 +53,10 @@ import { ClassMapperService } from 'src/app/services/class-mapper.service';
   ],
 })
 export default class AddComponent implements OnInit {
+  private as: ApiService = inject(ApiService);
+  private cms: ClassMapperService = inject(ClassMapperService);
+  private router: Router = inject(Router);
+
   message: Message = new Message();
   tags: Tag[] = [];
   addSending: boolean = false;
@@ -60,12 +64,6 @@ export default class AddComponent implements OnInit {
     { id: 0, name: 'Mensaje' },
     { id: 1, name: 'Tarea' },
   ];
-
-  constructor(
-    private as: ApiService,
-    private cms: ClassMapperService,
-    private router: Router
-  ) {}
 
   ngOnInit(): void {
     this.as.getTags().subscribe((result: TagsResult): void => {

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
 import {
@@ -14,15 +14,12 @@ import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-import { StatusResult } from 'src/app/interfaces/interfaces';
-import {
-  ChangePassInterface,
-  UserResult,
-} from 'src/app/interfaces/user.interfaces';
-import { User } from 'src/app/model/user.model';
-import { ApiService } from 'src/app/services/api.service';
-import { ClassMapperService } from 'src/app/services/class-mapper.service';
-import { Utils } from 'src/app/services/utils.class';
+import { StatusResult } from '@interfaces/interfaces';
+import { ChangePassInterface, UserResult } from '@interfaces/user.interfaces';
+import User from '@model/user.model';
+import ApiService from '@services/api.service';
+import ClassMapperService from '@services/class-mapper.service';
+import Utils from '@services/utils.class';
 
 @Component({
   standalone: true,
@@ -47,6 +44,9 @@ import { Utils } from 'src/app/services/utils.class';
   ],
 })
 export default class ProfileComponent implements OnInit {
+  private as: ApiService = inject(ApiService);
+  private cms: ClassMapperService = inject(ClassMapperService);
+
   user: User = new User();
   profileSending: boolean = false;
   passSending: boolean = false;
@@ -56,8 +56,6 @@ export default class ProfileComponent implements OnInit {
     new_pass: '',
     conf_pass: '',
   };
-
-  constructor(private as: ApiService, private cms: ClassMapperService) {}
 
   ngOnInit(): void {
     this.as.getUser().subscribe((result: UserResult): void => {

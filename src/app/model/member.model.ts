@@ -1,6 +1,6 @@
-import { MemberInterface } from 'src/app/interfaces/user.interfaces';
+import { MemberInterface } from '@interfaces/user.interfaces';
 
-export class Member {
+export default class Member {
   constructor(public idUser: number = -1, public isAdmin: boolean = false) {}
 
   fromInterface(m: MemberInterface): Member {

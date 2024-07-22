@@ -1,31 +1,31 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { inject, Injectable } from '@angular/core';
+import { environment } from '@env/environment';
 import {
   LoginData,
   LoginResult,
   RegisterData,
   StatusResult,
-} from 'src/app/interfaces/interfaces';
+} from '@interfaces/interfaces';
 import {
   MessageInterface,
   MessageResult,
   MessagesResult,
   TagsResult,
-} from 'src/app/interfaces/message.interfaces';
+} from '@interfaces/message.interfaces';
 import {
   ChangePassInterface,
   NewPassData,
   UserInterface,
   UserResult,
-} from 'src/app/interfaces/user.interfaces';
-import { environment } from 'src/environments/environment';
+} from '@interfaces/user.interfaces';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class ApiService {
-  apiUrl: string = environment.apiUrl;
+export default class ApiService {
+  private http: HttpClient = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+  apiUrl: string = environment.apiUrl;
 
   login(data: LoginData): Observable<LoginResult> {
     return this.http.post<LoginResult>(this.apiUrl + 'api/login', data);

@@ -1,11 +1,8 @@
-import {
-  FamilyInterface,
-  MemberInterface,
-} from 'src/app/interfaces/user.interfaces';
-import { Member } from 'src/app/model/member.model';
-import { Utils } from 'src/app/services/utils.class';
+import { FamilyInterface, MemberInterface } from '@interfaces/user.interfaces';
+import Member from '@model/member.model';
+import Utils from '@services/utils.class';
 
-export class Family {
+export default class Family {
   constructor(
     public id: number = -1,
     public name: string = '',

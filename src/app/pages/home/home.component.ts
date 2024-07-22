@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   MatButton,
   MatFabButton,
@@ -24,11 +24,11 @@ import {
 } from '@angular/material/sidenav';
 import { MatToolbar, MatToolbarRow } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
-import { MessagesResult } from 'src/app/interfaces/message.interfaces';
-import { Message } from 'src/app/model/message.model';
-import { ApiService } from 'src/app/services/api.service';
-import { ClassMapperService } from 'src/app/services/class-mapper.service';
-import { UserService } from 'src/app/services/user.service';
+import { MessagesResult } from '@interfaces/message.interfaces';
+import Message from '@model/message.model';
+import ApiService from '@services/api.service';
+import ClassMapperService from '@services/class-mapper.service';
+import UserService from '@services/user.service';
 
 @Component({
   standalone: true,
@@ -58,19 +58,17 @@ import { UserService } from 'src/app/services/user.service';
   ],
 })
 export default class HomeComponent implements OnInit {
+  private us: UserService = inject(UserService);
+  private as: ApiService = inject(ApiService);
+  private cms: ClassMapperService = inject(ClassMapperService);
+  private router: Router = inject(Router);
+
   name: string = '';
   opened: boolean = false;
 
   selectedType: number = -1;
   allMessages: Message[] = [];
   messages: Message[] = [];
-
-  constructor(
-    private us: UserService,
-    private as: ApiService,
-    private cms: ClassMapperService,
-    private router: Router
-  ) {}
 
   ngOnInit(): void {
     this.name = this.us.user.name;

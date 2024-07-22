@@ -1,7 +1,7 @@
+import Utils from '@services/utils.class';
 import { TagInterface } from 'src/app/interfaces/message.interfaces';
-import { Utils } from 'src/app/services/utils.class';
 
-export class Tag {
+export default class Tag {
   constructor(
     public id: number = -1,
     public id_user: number = -1,

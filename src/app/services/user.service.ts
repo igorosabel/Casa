@@ -1,17 +1,16 @@
-import { Injectable } from '@angular/core';
-import { UserInterface } from 'src/app/interfaces/user.interfaces';
-import { User } from 'src/app/model/user.model';
-import { ClassMapperService } from 'src/app/services/class-mapper.service';
-import { DataShareService } from 'src/app/services/data-share.service';
+import { inject, Injectable } from '@angular/core';
+import { UserInterface } from '@interfaces/user.interfaces';
+import User from '@model/user.model';
+import ClassMapperService from '@services/class-mapper.service';
+import DataShareService from '@services/data-share.service';
 
 @Injectable()
-export class UserService {
+export default class UserService {
+  private dss: DataShareService = inject(DataShareService);
+  private cms: ClassMapperService = inject(ClassMapperService);
+
   logged: boolean = false;
   user: User = new User();
-
-  constructor(private dss: DataShareService, private cms: ClassMapperService) {
-    this.dss.setSaveLocalStorage(true);
-  }
 
   loadLogin(): void {
     const loginObj: UserInterface = this.dss.getGlobal('login');

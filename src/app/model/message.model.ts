@@ -1,11 +1,8 @@
-import {
-  MessageInterface,
-  TagInterface,
-} from 'src/app/interfaces/message.interfaces';
-import { Tag } from 'src/app/model/tag.model';
-import { Utils } from 'src/app/services/utils.class';
+import { MessageInterface, TagInterface } from '@interfaces/message.interfaces';
+import Tag from '@model/tag.model';
+import Utils from '@services/utils.class';
 
-export class Message {
+export default class Message {
   tagList: string = '';
 
   constructor(

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import {
@@ -12,10 +12,10 @@ import {
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
-import { LoginData, LoginResult } from 'src/app/interfaces/interfaces';
-import { ApiService } from 'src/app/services/api.service';
-import { UserService } from 'src/app/services/user.service';
-import { Utils } from 'src/app/services/utils.class';
+import { LoginData, LoginResult } from '@interfaces/interfaces';
+import ApiService from '@services/api.service';
+import UserService from '@services/user.service';
+import Utils from '@services/utils.class';
 
 @Component({
   standalone: true,
@@ -37,18 +37,16 @@ import { Utils } from 'src/app/services/utils.class';
     MatInput,
   ],
 })
-export class LoginComponent {
+export default class LoginComponent {
+  private as: ApiService = inject(ApiService);
+  private us: UserService = inject(UserService);
+  private router: Router = inject(Router);
+
   loginData: LoginData = {
     email: '',
     pass: '',
   };
   loginSending: boolean = false;
-
-  constructor(
-    private as: ApiService,
-    private us: UserService,
-    private router: Router
-  ) {}
 
   doLogin(ev: MouseEvent): void {
     ev.preventDefault();

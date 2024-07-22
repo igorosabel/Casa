@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
-import {
-  MessageInterface,
-  TagInterface,
-} from 'src/app/interfaces/message.interfaces';
-import { UserInterface } from 'src/app/interfaces/user.interfaces';
-import { Message } from 'src/app/model/message.model';
-import { Tag } from 'src/app/model/tag.model';
-import { User } from 'src/app/model/user.model';
+import { MessageInterface, TagInterface } from '@interfaces/message.interfaces';
+import { UserInterface } from '@interfaces/user.interfaces';
+import Message from '@model/message.model';
+import Tag from '@model/tag.model';
+import User from '@model/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ClassMapperService {
+export default class ClassMapperService {
   getUsers(us: UserInterface[]): User[] {
     return us.map((u: UserInterface): User => {
       return this.getUser(u);
