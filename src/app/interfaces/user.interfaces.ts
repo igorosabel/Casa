@@ -10,7 +10,7 @@ export interface MemberInterface {
 }
 
 export interface UserInterface {
-  id: number | null;
+  id: number;
   name: string;
   email: string;
   token: string;
