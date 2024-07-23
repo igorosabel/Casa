@@ -16,6 +16,8 @@ import { LoginData, LoginResult } from '@interfaces/interfaces';
 import ApiService from '@services/api.service';
 import UserService from '@services/user.service';
 import Utils from '@services/utils.class';
+import User from '@model/user.model';
+import StoreService from '@services/store.service';
 
 @Component({
   standalone: true,
@@ -41,6 +43,7 @@ export default class LoginComponent {
   private as: ApiService = inject(ApiService);
   private us: UserService = inject(UserService);
   private router: Router = inject(Router);
+  private store: StoreService<User> = inject(StoreService);
 
   loginData: LoginData = {
     email: '',
@@ -65,10 +68,13 @@ export default class LoginComponent {
       this.loginSending = false;
       if (result.status === 'ok') {
         this.us.logged = true;
-        this.us.user.id = result.id;
-        this.us.user.name = Utils.urldecode(result.name);
-        this.us.user.email = this.loginData.email;
-        this.us.user.token = Utils.urldecode(result.token);
+        this.us.id = result.id;
+        const user: User = new User();
+        user.id = result.id;
+        user.name = Utils.urldecode(result.name);
+        user.email = this.loginData.email;
+        user.token = Utils.urldecode(result.token);
+        this.store.addOrUpdateItem(user);
         this.us.saveLogin();
 
         this.router.navigate(['/home']);

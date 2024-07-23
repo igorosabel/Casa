@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { UserInterface } from '@interfaces/user.interfaces';
 import User from '@model/user.model';
 import ClassMapperService from '@services/class-mapper.service';
-import StoreService from './store.service';
+import StoreService from '@services/store.service';
 
 @Injectable()
 export default class UserService {
