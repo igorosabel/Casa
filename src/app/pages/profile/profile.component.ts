@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
@@ -22,11 +21,9 @@ import ClassMapperService from '@services/class-mapper.service';
 import Utils from '@services/utils.class';
 
 @Component({
-  standalone: true,
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   imports: [
-    NgClass,
     FormsModule,
     RouterLink,
     MatToolbar,

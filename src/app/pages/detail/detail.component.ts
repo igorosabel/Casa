@@ -18,7 +18,6 @@ import ApiService from '@services/api.service';
 import ClassMapperService from '@services/class-mapper.service';
 
 @Component({
-  standalone: true,
   selector: 'app-detail',
   templateUrl: './detail.component.html',
   imports: [

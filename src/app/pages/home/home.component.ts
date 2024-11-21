@@ -1,10 +1,6 @@
 import { NgClass, NgStyle } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import {
-  MatButton,
-  MatFabButton,
-  MatIconButton,
-} from '@angular/material/button';
+import { MatFabButton, MatIconButton } from '@angular/material/button';
 import {
   MatCard,
   MatCardActions,
@@ -14,7 +10,6 @@ import { MatIcon } from '@angular/material/icon';
 import {
   MatListItem,
   MatListItemIcon,
-  MatListItemLine,
   MatNavList,
 } from '@angular/material/list';
 import {
@@ -31,7 +26,6 @@ import ClassMapperService from '@services/class-mapper.service';
 import UserService from '@services/user.service';
 
 @Component({
-  standalone: true,
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
@@ -48,11 +42,9 @@ import UserService from '@services/user.service';
     MatListItem,
     MatIcon,
     MatListItemIcon,
-    MatListItemLine,
     MatCard,
     MatCardContent,
     MatCardActions,
-    MatButton,
     MatIconButton,
     MatFabButton,
   ],

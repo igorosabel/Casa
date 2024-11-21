@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
@@ -19,12 +18,10 @@ import { NewPassData } from '@interfaces/user.interfaces';
 import ApiService from '@services/api.service';
 
 @Component({
-  standalone: true,
   selector: 'app-new-password',
   templateUrl: './new-password.component.html',
   styleUrls: ['./new-password.component.scss'],
   imports: [
-    NgClass,
     FormsModule,
     MatToolbar,
     MatIconButton,

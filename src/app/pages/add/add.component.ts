@@ -1,4 +1,4 @@
-import { JsonPipe, NgClass } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton, MatIconButton } from '@angular/material/button';
@@ -27,12 +27,10 @@ import ApiService from '@services/api.service';
 import ClassMapperService from '@services/class-mapper.service';
 
 @Component({
-  standalone: true,
   selector: 'app-add',
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.scss'],
   imports: [
-    NgClass,
     FormsModule,
     RouterModule,
     MatToolbar,

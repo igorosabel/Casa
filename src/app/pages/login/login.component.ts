@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
@@ -13,19 +12,17 @@ import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { LoginData, LoginResult } from '@interfaces/interfaces';
+import User from '@model/user.model';
 import ApiService from '@services/api.service';
+import StoreService from '@services/store.service';
 import UserService from '@services/user.service';
 import Utils from '@services/utils.class';
-import User from '@model/user.model';
-import StoreService from '@services/store.service';
 
 @Component({
-  standalone: true,
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   imports: [
-    NgClass,
     FormsModule,
     RouterLink,
     MatCard,
