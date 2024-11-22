@@ -71,8 +71,12 @@ export default class AddComponent implements OnInit {
 
   addTag(ev: MouseEvent, t: Tag): void {
     ev.preventDefault();
-    if (this.message.tagList.indexOf(t.name) === -1) {
-      const tags: string[] = this.message.tagList
+    if (
+      this.message.tagList !== null &&
+      t.name !== null &&
+      this.message.tagList.indexOf(t.name) === -1
+    ) {
+      const tags: (string | null)[] = this.message.tagList
         .split(',')
         .map((x: string): string => x.trim())
         .filter((x: string): boolean => x !== '');
@@ -87,15 +91,16 @@ export default class AddComponent implements OnInit {
       return;
     }
 
-    //this.addSending = true;
+    this.addSending = true;
 
-    const tags: string[] = this.message.tagList
-      .split(',')
-      .map((x: string): string => x.trim())
-      .filter((x: string): boolean => x !== '');
+    const tags: string[] = [];
+    if (this.message.tagList !== null) {
+      this.message.tagList
+        .split(',')
+        .map((x: string): string => x.trim())
+        .filter((x: string): boolean => x !== '');
+    }
 
-    console.log(this.message.toInterface());
-    return;
     this.as
       .saveMessage(this.message.toInterface())
       .subscribe((result: StatusResult): void => {

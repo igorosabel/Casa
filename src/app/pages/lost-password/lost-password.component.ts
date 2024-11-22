@@ -14,8 +14,8 @@ import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { StatusResult } from '@interfaces/interfaces';
+import { validateEmail } from '@osumi/tools';
 import ApiService from '@services/api.service';
-import Utils from '@services/utils.class';
 
 @Component({
   selector: 'app-lost-password',
@@ -50,7 +50,7 @@ export default class LostPasswordComponent {
       alert('¡No puedes dejar el email en blanco!');
       return;
     }
-    if (!Utils.validateEmail(this.email)) {
+    if (!validateEmail(this.email)) {
       alert('El email introducido no está bien formado.');
       return;
     }

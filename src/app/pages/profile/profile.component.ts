@@ -16,9 +16,9 @@ import { RouterLink } from '@angular/router';
 import { StatusResult } from '@interfaces/interfaces';
 import { ChangePassInterface, UserResult } from '@interfaces/user.interfaces';
 import User from '@model/user.model';
+import { validateEmail } from '@osumi/tools';
 import ApiService from '@services/api.service';
 import ClassMapperService from '@services/class-mapper.service';
-import Utils from '@services/utils.class';
 
 @Component({
   selector: 'app-profile',
@@ -69,12 +69,12 @@ export default class ProfileComponent implements OnInit {
   doProfile(ev: MouseEvent): void {
     ev.preventDefault();
 
-    if (this.user.email === '') {
+    if (this.user.email === '' || this.user.email === null) {
       alert('¡No puedes dejar el email en blanco!');
       return;
     }
 
-    if (!Utils.validateEmail(this.user.email)) {
+    if (this.user.email !== null && !validateEmail(this.user.email)) {
       alert('El email introducido no está bien formado.');
       return;
     }

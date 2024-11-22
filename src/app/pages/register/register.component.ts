@@ -14,9 +14,9 @@ import { MatInput } from '@angular/material/input';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router, RouterLink } from '@angular/router';
 import { LoginResult, RegisterData } from '@interfaces/interfaces';
+import { urldecode, validateEmail } from '@osumi/tools';
 import ApiService from '@services/api.service';
 import UserService from '@services/user.service';
-import Utils from '@services/utils.class';
 
 @Component({
   selector: 'app-register',
@@ -57,7 +57,7 @@ export default class RegisterComponent {
       alert('¡No puedes dejar el email en blanco!');
       return;
     }
-    if (!Utils.validateEmail(this.registerData.email)) {
+    if (!validateEmail(this.registerData.email)) {
       alert('El email introducido no está bien formado.');
       return;
     }
@@ -87,9 +87,9 @@ export default class RegisterComponent {
         if (result.status === 'ok') {
           this.us.logged = true;
           this.us.user.id = result.id;
-          this.us.user.name = Utils.urldecode(result.name);
+          this.us.user.name = urldecode(result.name);
           this.us.user.email = this.registerData.email;
-          this.us.user.token = Utils.urldecode(result.token);
+          this.us.user.token = urldecode(result.token);
           this.us.saveLogin();
 
           this.router.navigate(['/home']);

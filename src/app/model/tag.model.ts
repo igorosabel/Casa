@@ -1,17 +1,17 @@
-import Utils from '@services/utils.class';
+import { urldecode, urlencode } from '@osumi/tools';
 import { TagInterface } from 'src/app/interfaces/message.interfaces';
 
 export default class Tag {
   constructor(
     public id: number = -1,
     public id_user: number = -1,
-    public name: string = ''
+    public name: string | null = null
   ) {}
 
   fromInterface(t: TagInterface): Tag {
     this.id = t.id;
     this.id_user = t.id_user;
-    this.name = Utils.urldecode(t.name);
+    this.name = urldecode(t.name);
 
     return this;
   }
@@ -20,7 +20,7 @@ export default class Tag {
     return {
       id: this.id,
       id_user: this.id_user,
-      name: this.name,
+      name: urlencode(this.name),
     };
   }
 }

@@ -55,7 +55,7 @@ export default class HomeComponent implements OnInit {
   private cms: ClassMapperService = inject(ClassMapperService);
   private router: Router = inject(Router);
 
-  name: string = '';
+  name: string | null = '';
   opened: boolean = false;
 
   selectedType: number = -1;

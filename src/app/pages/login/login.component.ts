@@ -13,10 +13,10 @@ import { MatInput } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { LoginData, LoginResult } from '@interfaces/interfaces';
 import User from '@model/user.model';
+import { urldecode } from '@osumi/tools';
 import ApiService from '@services/api.service';
 import StoreService from '@services/store.service';
 import UserService from '@services/user.service';
-import Utils from '@services/utils.class';
 
 @Component({
   selector: 'app-login',
@@ -68,9 +68,9 @@ export default class LoginComponent {
         this.us.id = result.id;
         const user: User = new User();
         user.id = result.id;
-        user.name = Utils.urldecode(result.name);
+        user.name = urldecode(result.name);
         user.email = this.loginData.email;
-        user.token = Utils.urldecode(result.token);
+        user.token = urldecode(result.token);
         this.store.addOrUpdateItem(user);
         this.us.saveLogin();
 

@@ -1,20 +1,20 @@
 export interface TagInterface {
   id: number;
   id_user: number;
-  name: string;
+  name: string | null;
 }
 
 export interface MessageInterface {
   id: number | null;
   idUser: number;
-  body: string;
+  body: string | null;
   type: number;
   done: boolean;
   isPrivate: boolean;
   tags: TagInterface[];
   date: string;
   color: string;
-  tagList?: string;
+  tagList?: string | null;
 }
 
 export interface TagsResult {

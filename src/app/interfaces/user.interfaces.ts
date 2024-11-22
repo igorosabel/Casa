@@ -1,6 +1,6 @@
 export interface FamilyInterface {
   id: number;
-  name: string;
+  name: string | null;
   members: MemberInterface[];
 }
 
@@ -11,8 +11,8 @@ export interface MemberInterface {
 
 export interface UserInterface {
   id: number;
-  name: string;
-  email: string;
+  name: string | null;
+  email: string | null;
   token: string;
   color: string;
   family: FamilyInterface | null;
