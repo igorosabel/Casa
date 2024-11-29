@@ -1,4 +1,4 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { NgStyle } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { MatFabButton, MatIconButton } from '@angular/material/button';
 import {
@@ -30,7 +30,6 @@ import UserService from '@services/user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   imports: [
-    NgClass,
     NgStyle,
     RouterModule,
     MatSidenavContainer,

@@ -15,21 +15,21 @@
 			</a>
 			<a mat-list-item
 			   (click)="selectList(-1, $event)"
-			   [ngClass]="{'list-selected': selectedType === -1}">
+			   [class]="{'list-selected': selectedType === -1}">
 				<mat-icon matListItemIcon
 						  class="blue-icon">list</mat-icon>
 				Todos
 			</a>
 			<a mat-list-item
 			   (click)="selectList(1, $event)"
-			   [ngClass]="{'list-selected': selectedType === 1}">
+			   [class]="{'list-selected': selectedType === 1}">
 				<mat-icon matListItemIcon
 						  class="green-icon">article</mat-icon>
 				Mensajes
 			</a>
 			<a mat-list-item
 			   (click)="selectList(0, $event)"
-			   [ngClass]="{'list-selected': selectedType === 0}">
+			   [class]="{'list-selected': selectedType === 0}">
 				<mat-icon matListItemIcon
 						  class="red-icon">fact_check</mat-icon>
 				Tareas
