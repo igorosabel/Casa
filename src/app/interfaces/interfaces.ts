@@ -1,7 +1,3 @@
-export interface DataShareGlobals {
-  [key: string]: any;
-}
-
 export interface LoginData {
   email: string;
   pass: string;

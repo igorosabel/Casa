@@ -90,7 +90,9 @@ export default class HomeComponent implements OnInit {
   }
 
   selectList(type: number, ev: MouseEvent): void {
-    ev && ev.preventDefault();
+    if (ev) {
+      ev.preventDefault();
+    }
     this.selectedType = type;
     this.messages = this.allMessages.filter(
       (x: Message): boolean => x.type != type

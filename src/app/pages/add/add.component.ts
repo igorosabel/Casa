@@ -93,7 +93,6 @@ export default class AddComponent implements OnInit {
 
     this.addSending = true;
 
-    const tags: string[] = [];
     if (this.message.tagList !== null) {
       this.message.tagList
         .split(',')
